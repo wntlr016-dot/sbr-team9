@@ -129,7 +129,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
   <h3>파일</h3><button class="btn g" id="op2">다른 호기 파일 열기</button>
   <button class="btn g" id="rs">이 파일 입력 되돌리기</button>
   <p class="h">입력한 내용은 앱을 닫으면 사라져요. 작업을 마치거나 앱을 닫기 전에 꼭 엑셀로 저장하세요.</p>
-  <p class="h">앱 버전 v31</p>
+  <p class="h">앱 버전 v32</p>
  </section>
 </main>
 <div id="chk" hidden><div class="ck-top"><b>점검</b><button type="button" id="chk-x" aria-label="닫기">✕</button></div><div id="chk-b"></div></div>
@@ -418,12 +418,13 @@ function repText(date){
  const done=D.filter(r=>isDone(r[0])&&nd((S.r[r[0]]||{}).d)===date),g=rGong(date)||{day:'',names:[],dates:[]};
  const names=[...new Set([...done.flatMap(r=>[...rSplit(S.r[r[0]].w),...rSplit(S.r[r[0]].w2)]),...g.names])];
  let day=g.day;if(!/^\d+$/.test(day)){const ds=new Set([...g.dates,...D.filter(r=>isDone(r[0])).map(r=>nd((S.r[r[0]]||{}).d))].filter(x=>x&&x<=date));ds.add(date);day=String(ds.size)}
- const gm=new Map();done.forEach(r=>{const k=String(r[4]).trim(),a=gm.get(k)||[];a.push(r[2]||'');gm.set(k,a)});
- const fu=u=>{const q=/^(.*\D)\s*(\d+)$/.exec(u);return q?q[1].trim()+' #'+q[2]:u};
+ const rx=s=>s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),UQ=/^(.*[^\d#\s])\s*(\d+)$/,strip=(it,u)=>{if(!u||!UQ.test(u))return it;const re=new RegExp('(^|[^A-Za-z0-9])'+rx(u)+'(?![0-9])','i');return re.test(it)?it.replace(re,'$1').replace(/\s+/g,' ').trim():it};
+ const gm=new Map();done.forEach(r=>{const k=strip(String(r[4]).trim(),r[2]),a=gm.get(k)||[];a.push(r[2]||'');gm.set(k,a)});
+ const fu=u=>{const q=UQ.exec(u);return q?q[1].trim()+' #'+q[2]:u},uns=[...new Set(D.map(r=>String(r[2]||'').trim()).filter(u=>UQ.test(u)))].sort((a,b)=>b.length-a.length),ure=uns.length?new RegExp('\\b('+uns.map(rx).join('|')+')(?!\\d)','gi'):null;
  const works=[...gm].map(([it,us])=>{us=[...new Set(us.filter(Boolean))];let p='';
   if(us.length>1){const q=us.map(u=>/^(.*?)(\d+)$/.exec(u));p=q.every(x=>x&&x[1]===q[0][1])?(q[0][1].trim()+' '+q.map(x=>'#'+x[2]).join(', ')).trim():us.map(fu).join(', ')}
   else if(us.length===1&&!/^main$/i.test(us[0])&&!it.toLowerCase().includes(us[0].toLowerCase()))p=fu(us[0]);
-  return '- '+[p,it].filter(Boolean).join(' ')+(/done\s*$/i.test(it)?'':' Done')});
+  let s=[p,it].filter(Boolean).join(' ');if(ure)s=s.replace(ure,m=>fu(m));return '- '+s+(/done\s*$/i.test(it)?'':' Done')});
  const mm=+date.slice(5,7),dd=+date.slice(8);
  const sp=[...new Set([...S.iss.filter(x=>+x.m===mm&&+x.dy===dd).map(x=>[...new Set([x.it,x.is].filter(Boolean))].join(' ').trim()),...done.map(r=>S.r[r[0]].sp)].filter(Boolean))];
  return [`${pre} ${un}${idt} ${REP.ph} 작업진행 현황`,'',`작업인원 : ${names.join(', ')}`,`작업일수: ${day}일차`,'',...repProg().map((s,i)=>`${i+1}. ${s}`),'','금일 작업',...(works.length?works:['- (완료 처리한 항목 없음)']),'','특이사항',...(sp.length?sp.map(s=>'- '+s):['- 특이사항 없음']),'',REP.end].join('\n')}
