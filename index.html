@@ -129,7 +129,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
   <h3>파일</h3><button class="btn g" id="op2">다른 호기 파일 열기</button>
   <button class="btn g" id="rs">이 파일 입력 되돌리기</button>
   <p class="h">입력한 내용은 앱을 닫으면 사라져요. 작업을 마치거나 앱을 닫기 전에 꼭 엑셀로 저장하세요.</p>
-  <p class="h">앱 버전 v32</p>
+  <p class="h">앱 버전 v33</p>
  </section>
 </main>
 <div id="chk" hidden><div class="ck-top"><b>점검</b><button type="button" id="chk-x" aria-label="닫기">✕</button></div><div id="chk-b"></div></div>
@@ -334,7 +334,7 @@ async function saveX(){
  if(z.file('xl/calcChain.xml')){z.remove('xl/calcChain.xml');const ct='[Content_Types].xml',rp='xl/_rels/workbook.xml.rels';
   z.file(ct,(await z.file(ct).async('string')).replace(/<Override[^>]*calcChain[^>]*\/>/,''));z.file(rp,(await z.file(rp).async('string')).replace(/<Relationship [^>]*calcChain[^>]*\/>/,''))}
  for(const p of Object.keys(z.files))if(/\.(xml|rels)$/.test(p)){const d=new DOMParser().parseFromString(await z.file(p).async('string'),'application/xml');if(d.getElementsByTagName('parsererror').length)throw new Error('xml:'+p)}
- const blob=await z.generateAsync({type:'blob',compression:'DEFLATE'});
+ const blob=await z.generateAsync({type:'blob',compression:'DEFLATE',mimeType:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
  await dl.save({filename:ctx.name.replace(/\.xlsx$/i,'')+'_입력.xlsx',data:blob});LS=JSON.stringify([S.r,S.iss,T]);updSv();toast('저장했습니다')
  }catch(e){if(!e||e.code!=='declined')toast(String(e&&e.message).startsWith('xml:')?'저장 검사 실패: '+e.message.slice(4):'저장에 실패했습니다')}}
 $('#fi').onchange=e=>{const fl=e.target.files[0];e.target.value='';if(fl)load(fl)};
