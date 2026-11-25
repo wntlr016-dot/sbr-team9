@@ -70,7 +70,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 .fd[data-st=ok] input{border-color:var(--ok)}.fd[data-st=ok] .sj{color:var(--ok)}
 .fd[data-st=bad] input{border-color:#c62828;background:rgba(198,40,40,.08)}.fd[data-st=bad] .sj{color:#c62828}
 .fd[data-st=adj] input{border-color:#d97706}.fd[data-st=adj] .sj{color:#b45309}
-#chk,#rp{position:fixed;inset:0;z-index:60;background:var(--bg);overflow:auto;padding:0 12px calc(24px + env(safe-area-inset-bottom,0px));padding-top:env(safe-area-inset-top,0px)}
+#chk,#rp,#gh{position:fixed;inset:0;z-index:60;background:var(--bg);overflow:auto;padding:0 12px calc(24px + env(safe-area-inset-bottom,0px));padding-top:env(safe-area-inset-top,0px)}
 .rp-bar{display:flex;gap:8px;margin:4px 0 8px}.rp-bar input{flex:1;min-width:0;font:inherit;padding:10px;border:1px solid var(--ln);border-radius:8px;background:var(--sf);color:var(--ink)}.rp-bar .btn{width:auto;padding:10px 14px}
 #rp-t{width:100%;box-sizing:border-box;font:inherit;font-size:14px;line-height:1.55;padding:12px;border:1px solid var(--ln);border-radius:10px;background:var(--sf);color:var(--ink);min-height:55vh;resize:vertical}
 .rp-act{display:flex;gap:8px;margin:8px 0}.rp-act .btn{flex:1}
@@ -79,6 +79,9 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 .ck-top{position:sticky;top:0;display:flex;justify-content:space-between;align-items:center;background:var(--bg);padding:12px 0 8px;z-index:2}.ck-top b{font-size:18px}.ck-top button{border:1px solid var(--ln);background:var(--sf);color:var(--ink);border-radius:8px;font-size:18px;width:40px;height:40px}
 .ck-sum{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;margin:2px 0 8px}.ck-sum b{font-size:16px}.ck-sum b.bad{color:#c62828}.ck-sum span{font-size:12px;color:var(--mute)}
 .ck-f{display:flex;gap:6px;margin-bottom:8px}.ck-f button{flex:1;border:1px solid var(--ln);background:var(--sf);color:var(--ink);border-radius:999px;padding:8px 0;font:inherit;font-size:13px}.ck-f button[aria-pressed=true]{background:var(--ink);color:var(--sf);border-color:var(--ink)}
+.gh-u{display:block;width:100%;text-align:left;background:var(--sf);border:1px solid var(--ln);border-radius:10px;padding:12px;margin-bottom:8px;color:var(--ink);font:inherit;cursor:pointer}.gh-u b{display:block;font-size:15px}.gh-u small{display:block;color:var(--mute);font-size:12px;margin-top:2px}.gh-u i{display:block;height:6px;border-radius:3px;background:var(--ln);margin:8px 0 4px;overflow:hidden}.gh-u i u{display:block;height:100%;background:var(--ok)}
+.gh-g summary{cursor:pointer;font-size:13px;font-weight:600;padding:6px 0}.gh-g ol{margin:4px 0 8px;padding-left:18px;font-size:13px;line-height:1.55}.gh-g li{margin-bottom:4px}.gh-g .gtip{font-size:12px;color:var(--mute)}#gh-tm:empty{display:none}
+.gh-f{padding:0 12px 12px;display:grid;gap:8px}.gh-f label{display:grid;gap:3px;font-size:12px;color:var(--mute)}.gh-f label.sw{display:flex;gap:8px;align-items:center;font-size:14px;color:var(--ink)}.gh-f input:not([type=checkbox]){font:inherit;font-size:15px;padding:9px;border:1px solid var(--ln);border-radius:8px;background:var(--sf);color:var(--ink);min-width:0}
 .ck-h{font-size:13px;color:var(--mute);margin:14px 2px 6px}
 .ck-s{background:var(--sf);border:1px solid var(--ln);border-radius:10px;margin-bottom:8px;overflow:hidden}.ck-s summary{display:flex;gap:6px;align-items:center;padding:12px;cursor:pointer;list-style:none}.ck-s summary::-webkit-details-marker{display:none}.ck-t{flex:1;font-size:14px;font-weight:600}
 .ck-c{font-size:12px;padding:2px 8px;border-radius:999px;background:rgba(217,119,6,.15);color:#b45309;white-space:nowrap}.ck-c.bad{background:rgba(198,40,40,.12);color:#c62828}.ck-c.ok{background:var(--okbg);color:var(--ok)}
@@ -93,7 +96,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
  <nav id="nav" role="tablist" hidden><button data-t="list" aria-selected="true">체크리스트</button><button data-t="stat">현황</button><button data-t="iss">특이사항</button><button data-t="sh">스펙</button><button data-t="set">설정</button></nav>
 </header>
 <main>
- <section id="v-open" class="open"><h2>호기별 엑셀 파일을 열어주세요</h2><p>같은 양식의 파일을 열면 항목이 그대로 나타나고, 입력한 내용은 그 파일에 반영해 저장할 수 있어요.</p><button class="btn" id="op">엑셀 파일 열기</button><input type="file" id="fi" accept=".xlsx" hidden><div class="gdh" id="gd-a"></div></section>
+ <section id="v-open" class="open"><h2>호기별 엑셀 파일을 열어주세요</h2><p>같은 양식의 파일을 열면 항목이 그대로 나타나고, 입력한 내용은 그 파일에 반영해 저장할 수 있어요.</p><button class="btn" id="op">엑셀 파일 열기</button><button class="btn g" id="gh-o2" type="button">☁ 공유 현황 보기</button><input type="file" id="fi" accept=".xlsx" hidden><div class="gdh" id="gd-a"></div></section>
  <section id="v-list" hidden>
   <div class="fl" id="chips"></div>
   <div class="q"><input id="q" type="search" placeholder="항목 검색"><select id="fs"></select><select id="ft"><option value="">전체</option><option value="n">미완료</option><option value="y">완료</option></select><select id="fd" hidden></select></div>
@@ -129,12 +132,15 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
   <label class="sw"><input type="checkbox" id="ga2">완료한 항목을 공수 시트에 자동 입력</label>
   <p class="h">끄면 지금까지 들어간 내용은 그대로 두고 더 이상 자동으로 바꾸지 않아요.</p>
   <button class="btn g" id="gr">자동 입력 정리 후 다시 만들기</button>
+  <h3>공유 저장</h3><p class="h">엑셀을 저장할 때 체크리스트와 특이사항을 공유 서버(구글 드라이브)에 호기별로 함께 올려, 다른 사람도 볼 수 있게 해요. 서버 주소가 이미 들어 있어서 따로 설정할 필요가 없어요.</p>
+  <button class="btn g" id="gh-o3" type="button">☁ 공유 설정 / 현황 열기</button>
   <h3>파일</h3><button class="btn g" id="op2">다른 호기 파일 열기</button>
   <button class="btn g" id="rs">이 파일 입력 되돌리기</button>
   <p class="h">입력한 내용은 앱을 닫으면 사라져요. 작업을 마치거나 앱을 닫기 전에 꼭 엑셀로 저장하세요.</p>
-  <p class="h">앱 버전 v43</p>
+  <p class="h">앱 버전 v48</p>
  </section>
 </main>
+<div id="gh" hidden><div class="ck-top"><b>☁ 공유 현황</b><button type="button" id="gh-x" aria-label="닫기">✕</button></div><div id="gh-b"></div></div>
 <div id="chk" hidden><div class="ck-top"><b>점검</b><button type="button" id="chk-x" aria-label="닫기">✕</button></div><div id="chk-b"></div></div>
 <div id="rp" hidden><div class="ck-top"><b>일일보고</b><button type="button" id="rp-x" aria-label="닫기">✕</button></div>
 <div class="rp-bar"><input type="date" id="rp-d"><button type="button" class="btn g" id="rp-re">다시 만들기</button></div>
@@ -148,8 +154,9 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 <li><b>스펙</b> — 측정값(Spec Data)을 칸마다 입력해요. Spec 범위를 벗어나면 바로 빨갛게 알려주고(조정 전은 주황 "조정 필요"), <b>✔ 점검</b> 버튼으로 빠진 칸과 벗어난 칸을 한눈에 볼 수 있어요.</li>
 <li><b>특이사항</b> — 작업 중 생긴 ISSUE를 기록해요.</li>
 <li><b>현황</b> — 진행률을 보고, <b>📋 일일보고 만들기</b>로 보고 글을 만들어 복사·공유해요.</li>
+<li><b>공유</b> — 설정 탭의 <b>☁ 공유 설정</b>의 공유 서버가 기본으로 연결돼 있어서 따로 설정하지 않아도, 엑셀을 저장할 때 체크리스트·특이사항이 호기별로 함께 올라가요. 현황 탭의 <b>☁ 공유 현황</b>에서 모든 호기의 진행·완료 항목·특이사항을 날짜별로 볼 수 있어요.</li>
 <li><b>저장</b> — 위쪽 "엑셀 저장"을 누르면 <b>원본이름_입력.xlsx</b>로 저장돼요. 입력한 내용은 앱을 닫으면 사라지니 꼭 저장하세요.</li>
-</ol><div class="gtip">팁: 설정 탭에 내 이름을 적어두면 체크할 때 작업자가 자동으로 들어가요. 사진 영역은 엑셀에서 직접 붙여넣어야 해요.</div></details><details class="guide log"><summary>업데이트 내역</summary><div class="lg"><b>v43</b><small>11/25</small><ul><li>'시트' 탭 이름을 '스펙'으로 변경</li><li>스펙 화면: 시트·구역이 하나뿐이면 중복 선택칸(Sheet1) 숨김, 기본 이름 Sheet1은 '스펙'으로 표시</li></ul></div><div class="lg"><b>v42</b><small>11/25</small><ul><li>체크리스트: 완료일 기준으로 보는 '날짜' 필터 추가 (완료한 날짜가 목록으로 나오고 날짜별 완료 건수 표시, 날짜를 고르면 그날 완료한 항목만 표시)</li></ul></div><div class="lg"><b>v41</b><small>11/25</small><ul><li>체크리스트: 방금 완료 체크한 항목이 다른 탭에 다녀와도 '미완료' 목록에서 사라지지 않음 (필터를 바꾸거나 파일을 다시 열 때 정리됨)</li></ul></div><div class="lg"><b>v40</b><small>11/25</small><ul><li>일일보고: 대문자로 그대로 둘 약어 기본 목록 확대 (DIW, UPW, DI, CCR, FSC, BSC, SAC, EBR, EBRM, HRVA, LFC, FDM, CCD, OHT, EMO, DC, RPM, FFU, OK, SABRE, CM, EA, UI, LAM 추가)</li></ul></div><div class="lg"><b>v39</b><small>11/25</small><ul><li>일일보고: 대문자로 그대로 둘 단어에 SRD, DUET, APT, AWC 추가 (FE, BE, PEM과 함께 기본 적용)</li></ul></div><div class="lg"><b>v38</b><small>11/25</small><ul><li>일일보고: 금일 작업의 대문자 영어를 첫 글자만 대문자로 표기 (ALIGNER VACCUM → Aligner Vaccum), FE·BE·PEM은 그대로 두고 보고서 설정에서 예외 단어 추가·삭제 가능</li></ul></div><div class="lg"><b>v37</b><small>11/25</small><ul><li>업데이트 내역 추가</li></ul></div><div class="lg"><b>v36</b><small>11/25</small><ul><li>첫 화면과 설정 탭에 사용 방법 추가</li></ul></div><div class="lg"><b>v35</b><small>11/25</small><ul><li>체크리스트: 파일을 열면 미완료 항목만 먼저 표시 (방금 체크한 항목은 바로 사라지지 않고, 다른 탭에 갔다 오면 정리)</li></ul></div><div class="lg"><b>v34</b><small>11/25</small><ul><li>일일보고: 마지막 문구 제거 (필요하면 보고서 설정에서 직접 입력)</li></ul></div><div class="lg"><b>v33</b><small>11/25</small><ul><li>엑셀 저장: 압축파일(zip)로 인식되던 문제 수정, 엑셀 형식으로 저장</li></ul></div><div class="lg"><b>v32</b><small>11/25</small><ul><li>일일보고: 한 유닛만 한 작업도 "Cell #1"처럼 표기</li><li>일일보고: 항목 이름에 Cell1 등이 들어 있어도 #번호로 정리하고 같은 작업은 한 줄로 합침</li></ul></div><div class="lg"><b>v31</b><small>11/25</small><ul><li>일일보고: 여러 유닛 작업을 "Cell #1, #2, #3"으로 표기</li></ul></div><div class="lg"><b>v30</b><small>11/25</small><ul><li>일일보고 자동 작성 (현황 탭): 작업인원·작업일수·진행률·금일 작업·특이사항을 양식대로 만들고 복사·공유</li><li>진행률 줄 이름·순서·포함 여부와 호기 번호, 단계(T1-1) 설정</li></ul></div><div class="lg"><b>v29</b><small>11/25</small><ul><li>Spec 자동 판정: 값을 입력하면 범위 안(초록) / 조정 필요(주황) / Spec 벗어남(빨강)을 바로 표시</li><li>점검 화면: 미입력 칸과 Spec 벗어난 칸을 구역별로 모아 보고, 누르면 해당 칸으로 이동</li></ul></div><div class="lg"><b>v28</b><small>11/24</small><ul><li>3D 시트 "6. 각 Cell's Chamber Level Check Data" 화면 정리, DUET1 left → DUET1 right 순서로 표시</li></ul></div><div class="lg"><b>v27</b><small>11/24</small><ul><li>9·10·13·14·15번 구역(PEM Level, PEM Spin RPM, FSC Nozzle, Wafer Rinse & CCR, CUP Open Speed) 화면 정리</li><li>엑셀의 "/" 표시 칸과 표 바깥 빈 칸은 입력칸에서 제외, 같은 단위·Spec은 한 번만 표시</li></ul></div><div class="lg"><b>v26</b><small>11/24</small><ul><li>8번 Cell Digi Pas 구역 정리: CELL별로 묶고 조정 전/후를 색으로 구분</li></ul></div><div class="lg"><b>v25 이전</b><ul><li>시트 입력을 칸마다 입력하는 카드 화면으로 개선, 조정 전(주황)/조정 후(초록) 구분</li><li>3D 장비 엑셀 인식 추가</li><li>공수 자동 입력: 고정 서식(Date yyyy-mm-dd, 작업구분 굵게, 행 높이 자동)</li><li>아이폰(웹앱) 지원, 엑셀 저장 시 서식과 다른 시트 유지</li></ul></div></details></template>
+</ol><div class="gtip">팁: 설정 탭에 내 이름을 적어두면 체크할 때 작업자가 자동으로 들어가요. 사진 영역은 엑셀에서 직접 붙여넣어야 해요.</div></details><details class="guide log"><summary>업데이트 내역</summary><div class="lg"><b>v48</b><small>11/25</small><ul><li>공유 서버 주소를 앱에 기본 포함: 따로 입력하거나 설정하지 않아도 모든 사용자가 바로 공유 저장·조회</li></ul></div><div class="lg"><b>v47</b><small>11/25</small><ul><li>공유 저장: 토큰 없이 쓰는 구글 Apps Script 공유 서버 지원 (주소만 넣으면 누구나 저장·조회)</li><li>서버 코드 복사, 팀원용 설정 링크 복사 기능 (GitHub 저장소 방식은 고급 옵션으로 유지)</li></ul></div><div class="lg"><b>v46</b><small>11/25</small><ul><li>공유 저장: 엑셀을 저장할 때 체크리스트·특이사항을 GitHub 저장소에 호기별(JSON)로 함께 저장</li><li>☁ 공유 현황: 호기 목록, 진행률, 날짜·Unit별 완료 항목, 특이사항 조회 (엑셀을 열지 않아도 볼 수 있음)</li><li>공유 내용을 내 체크리스트에 가져오기, 동시 저장 충돌 시 자동 병합</li></ul></div><div class="lg"><b>v45</b><small>11/25</small><ul><li>일일보고: 진행률 95% 이상은 100%로 표기 (5% 단위, 시작했으면 최소 5%)</li></ul></div><div class="lg"><b>v44</b><small>11/25</small><ul><li>일일보고: 진행률을 5% 단위로 표기 (완료 전에는 최대 95%, 시작했으면 최소 5%, 전부 끝나면 100%)</li></ul></div><div class="lg"><b>v43</b><small>11/25</small><ul><li>'시트' 탭 이름을 '스펙'으로 변경</li><li>스펙 화면: 시트·구역이 하나뿐이면 중복 선택칸(Sheet1) 숨김, 기본 이름 Sheet1은 '스펙'으로 표시</li></ul></div><div class="lg"><b>v42</b><small>11/25</small><ul><li>체크리스트: 완료일 기준으로 보는 '날짜' 필터 추가 (완료한 날짜가 목록으로 나오고 날짜별 완료 건수 표시, 날짜를 고르면 그날 완료한 항목만 표시)</li></ul></div><div class="lg"><b>v41</b><small>11/25</small><ul><li>체크리스트: 방금 완료 체크한 항목이 다른 탭에 다녀와도 '미완료' 목록에서 사라지지 않음 (필터를 바꾸거나 파일을 다시 열 때 정리됨)</li></ul></div><div class="lg"><b>v40</b><small>11/25</small><ul><li>일일보고: 대문자로 그대로 둘 약어 기본 목록 확대 (DIW, UPW, DI, CCR, FSC, BSC, SAC, EBR, EBRM, HRVA, LFC, FDM, CCD, OHT, EMO, DC, RPM, FFU, OK, SABRE, CM, EA, UI, LAM 추가)</li></ul></div><div class="lg"><b>v39</b><small>11/25</small><ul><li>일일보고: 대문자로 그대로 둘 단어에 SRD, DUET, APT, AWC 추가 (FE, BE, PEM과 함께 기본 적용)</li></ul></div><div class="lg"><b>v38</b><small>11/25</small><ul><li>일일보고: 금일 작업의 대문자 영어를 첫 글자만 대문자로 표기 (ALIGNER VACCUM → Aligner Vaccum), FE·BE·PEM은 그대로 두고 보고서 설정에서 예외 단어 추가·삭제 가능</li></ul></div><div class="lg"><b>v37</b><small>11/25</small><ul><li>업데이트 내역 추가</li></ul></div><div class="lg"><b>v36</b><small>11/25</small><ul><li>첫 화면과 설정 탭에 사용 방법 추가</li></ul></div><div class="lg"><b>v35</b><small>11/25</small><ul><li>체크리스트: 파일을 열면 미완료 항목만 먼저 표시 (방금 체크한 항목은 바로 사라지지 않고, 다른 탭에 갔다 오면 정리)</li></ul></div><div class="lg"><b>v34</b><small>11/25</small><ul><li>일일보고: 마지막 문구 제거 (필요하면 보고서 설정에서 직접 입력)</li></ul></div><div class="lg"><b>v33</b><small>11/25</small><ul><li>엑셀 저장: 압축파일(zip)로 인식되던 문제 수정, 엑셀 형식으로 저장</li></ul></div><div class="lg"><b>v32</b><small>11/25</small><ul><li>일일보고: 한 유닛만 한 작업도 "Cell #1"처럼 표기</li><li>일일보고: 항목 이름에 Cell1 등이 들어 있어도 #번호로 정리하고 같은 작업은 한 줄로 합침</li></ul></div><div class="lg"><b>v31</b><small>11/25</small><ul><li>일일보고: 여러 유닛 작업을 "Cell #1, #2, #3"으로 표기</li></ul></div><div class="lg"><b>v30</b><small>11/25</small><ul><li>일일보고 자동 작성 (현황 탭): 작업인원·작업일수·진행률·금일 작업·특이사항을 양식대로 만들고 복사·공유</li><li>진행률 줄 이름·순서·포함 여부와 호기 번호, 단계(T1-1) 설정</li></ul></div><div class="lg"><b>v29</b><small>11/25</small><ul><li>Spec 자동 판정: 값을 입력하면 범위 안(초록) / 조정 필요(주황) / Spec 벗어남(빨강)을 바로 표시</li><li>점검 화면: 미입력 칸과 Spec 벗어난 칸을 구역별로 모아 보고, 누르면 해당 칸으로 이동</li></ul></div><div class="lg"><b>v28</b><small>11/24</small><ul><li>3D 시트 "6. 각 Cell's Chamber Level Check Data" 화면 정리, DUET1 left → DUET1 right 순서로 표시</li></ul></div><div class="lg"><b>v27</b><small>11/24</small><ul><li>9·10·13·14·15번 구역(PEM Level, PEM Spin RPM, FSC Nozzle, Wafer Rinse & CCR, CUP Open Speed) 화면 정리</li><li>엑셀의 "/" 표시 칸과 표 바깥 빈 칸은 입력칸에서 제외, 같은 단위·Spec은 한 번만 표시</li></ul></div><div class="lg"><b>v26</b><small>11/24</small><ul><li>8번 Cell Digi Pas 구역 정리: CELL별로 묶고 조정 전/후를 색으로 구분</li></ul></div><div class="lg"><b>v25 이전</b><ul><li>시트 입력을 칸마다 입력하는 카드 화면으로 개선, 조정 전(주황)/조정 후(초록) 구분</li><li>3D 장비 엑셀 인식 추가</li><li>공수 자동 입력: 고정 서식(Date yyyy-mm-dd, 작업구분 굵게, 행 높이 자동)</li><li>아이폰(웹앱) 지원, 엑셀 저장 시 서식과 다른 시트 유지</li></ul></div></details></template>
 <div id="toast"></div>
 <script src="jszip.min.js"></script>
 <script>
@@ -192,7 +199,7 @@ function bars(title,i){const m=new Map();D.forEach(r=>{const k=r[i]||'-',a=m.get
 function issues(){$('#i-ls').innerHTML=S.iss.map((x,i)=>`<div class="iss"><button data-del="${i}">삭제</button><small>No.${i+1}  ${x.m}/${x.dy}  ${esc(x.ch)}  ${esc(x.u)}</small><b>${esc(x.it)}</b><div>${esc(x.is)}</div>${x.nt?`<small>${esc(x.nt)}</small>`:''}</div>`).reverse().join('')||'<p class="h">아직 기록이 없습니다.</p>'}
 function tab(t){document.querySelectorAll('#nav button').forEach(b=>b.setAttribute('aria-selected',b.dataset.t===t));
  ['list','stat','iss','sh','set'].forEach(k=>$('#v-'+k).hidden=k!==t);
- if(t==='stat')$('#v-stat').innerHTML='<button class="btn" id="rp-o" type="button">📋 일일보고 만들기</button>'+(ctx.cm.st?bars('단계별',1):'')+bars('작업구분별',3)+bars('Unit별',2);
+ if(t==='stat')$('#v-stat').innerHTML='<button class="btn" id="rp-o" type="button">📋 일일보고 만들기</button><button class="btn g" id="gh-o" type="button">☁ 공유 현황 (호기별)</button>'+(ctx.cm.st?bars('단계별',1):'')+bars('작업구분별',3)+bars('Unit별',2);
  if(t==='iss')issues();if(t==='sh')shDraw();if(t==='list'&&D.length)draw();window.scrollTo(0,0)}
 
 $('#nav').onclick=e=>{const b=e.target.closest('button');if(b)tab(b.dataset.t)};
@@ -257,7 +264,7 @@ async function load(file){
   const u=gv('unit',r)||pu;pu=u;D.push([+no,gv('st',r),u,gv('gu',r),gv('it',r),r]);
   S.r[+no]={d:nd(gv('d',r)),g:gv('g',r),note:gv('note',r),w:gv('w',r),w2:gv('w2',r),c:gv('c',r),sp:gv('sp',r)}}
  for(let r=2;r<=400;r++){const v='CDEFGHI'.split('').map(c=>im[c+r]||'');if(v.some(Boolean)){ctx.imax=r;S.iss.push({m:v[0],dy:v[1],ch:v[2],u:v[3],it:v[4],is:v[5],nt:v[6]})}}
- O=clone({r:S.r,iss:S.iss});LS=JSON.stringify([O.r,O.iss,{}]);
+ O=clone({r:S.r,iss:S.iss});GB=clone(O);GH.sy.clear();LS=JSON.stringify([O.r,O.iss,{}]);
  T={};SH=[];CUR=0;OD=new Set();AU={gm:{},dy:{},a:{}};const xf=styles(await xml(z,'xl/styles.xml'));
  for(const s of b.sh)if(s.p!==main.p&&s.n!=='특이사항'&&s.n!=='Data'&&!s.hid&&!/^세부 정보/.test(s.n))SH.push(await model(z,b,xf,s));
  try{Object.keys(localStorage).filter(k=>k.startsWith('sbr-d:')).forEach(k=>localStorage.removeItem(k))}catch(e){}
@@ -353,7 +360,7 @@ async function saveX(){
   z.file(ct,(await z.file(ct).async('string')).replace(/<Override[^>]*calcChain[^>]*\/>/,''));z.file(rp,(await z.file(rp).async('string')).replace(/<Relationship [^>]*calcChain[^>]*\/>/,''))}
  for(const p of Object.keys(z.files))if(/\.(xml|rels)$/.test(p)){const d=new DOMParser().parseFromString(await z.file(p).async('string'),'application/xml');if(d.getElementsByTagName('parsererror').length)throw new Error('xml:'+p)}
  const blob=await z.generateAsync({type:'blob',compression:'DEFLATE',mimeType:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
- await dl.save({filename:ctx.name.replace(/\.xlsx$/i,'')+'_입력.xlsx',data:blob});LS=JSON.stringify([S.r,S.iss,T]);updSv();toast('저장했습니다')
+ await dl.save({filename:ctx.name.replace(/\.xlsx$/i,'')+'_입력.xlsx',data:blob});LS=JSON.stringify([S.r,S.iss,T]);updSv();toast('저장했습니다');ghAfterSave()
  }catch(e){if(!e||e.code!=='declined')toast(String(e&&e.message).startsWith('xml:')?'저장 검사 실패: '+e.message.slice(4):'저장에 실패했습니다')}}
 $('#fi').onchange=e=>{const fl=e.target.files[0];e.target.value='';if(fl)load(fl)};
 ['#op','#op2'].forEach(s=>$(s).onclick=()=>$('#fi').click());
@@ -430,7 +437,7 @@ function repLines(){const c=REP.cfg[rKind()]||(REP.cfg[rKind()]={lines:[]});
 const lrows=l=>D.filter(r=>l.k[0]==='g'?r[3]===l.k.slice(2):!!(l.kw&&String(r[4]).toLowerCase().includes(l.kw.toLowerCase())));
 function repProg(){const m=new Map();
  repLines().filter(l=>l.inc).forEach(l=>{const rows=lrows(l),lab=(l.label||'').trim()||(l.k[0]==='g'?l.k.slice(2):'항목'),a=m.get(lab)||{d:0,t:0};a.t+=rows.length;a.d+=rows.filter(r=>isDone(r[0])).length;m.set(lab,a)});
- return [...m].filter(([,a])=>a.t).map(([k,a])=>{let p=Math.round(a.d/a.t*100);if(a.d<a.t)p=Math.min(99,p);if(a.d>0)p=Math.max(1,p);return `${k} - ${p}%`})}
+ return [...m].filter(([,a])=>a.t).map(([k,a])=>{let p=Math.round(a.d/a.t*20)*5;if(a.d>0)p=Math.max(5,p);if(p>=95)p=100;return `${k} - ${p}%`})}
 function rGong(date){const m=SH.find(s=>{if(s.G===undefined)s.G=glay(s)||false;return s.G});if(!m)return null;const L=m.G,H=L.H;let days=[];try{days=buildDays(m,L)}catch(e){return null}
  const o={day:'',names:[],dates:[]};
  days.forEach(d=>{const dt=nd(val(m,H.Date+d.r1));if(dt)o.dates.push(dt);if(dt!==date)return;o.day=String(val(m,H.Day+d.r1)||'').trim();for(let r=d.r1;r<=d.r2;r++)rSplit(val(m,H.작업자+r)).forEach(n=>o.names.push(n))});return o}
@@ -464,7 +471,7 @@ async function repShare(){const s=$('#rp-t').value;
  try{const P=window.Capacitor&&Capacitor.Plugins&&Capacitor.Plugins.Share;if(P){await P.share({text:s,dialogTitle:'일일보고 보내기'});return}
   if(navigator.share){await navigator.share({text:s});return}}catch(e){if(e&&e.name==='AbortError')return}
  repCopy()}
-$('#v-stat').onclick=e=>{if(e.target.closest('#rp-o'))repOpen()};
+$('#v-stat').onclick=e=>{if(e.target.closest('#rp-o'))repOpen();else if(e.target.closest('#gh-o'))ghOpen()};
 $('#rp-x').onclick=()=>{$('#rp').hidden=true};
 $('#rp-d').onchange=e=>{RPD=e.target.value||today();repGen()};
 $('#rp-re').onclick=()=>{repGen();toast('다시 만들었습니다')};
@@ -789,5 +796,167 @@ let rb;$('#gr').onclick=e=>{if(!rb){rb=1;e.target.textContent='한 번 더 누�
  if(m){const E=T[m.n]||{};for(const k in AU.a)if(E[k]===AU.a[k])delete E[k]}
  AU={gm:{},dy:{},a:{}};resetMerges();save();if(!$('#v-sh').hidden)shDraw();toast('자동 입력을 다시 만들었습니다')};
 window.addEventListener('beforeunload',e=>{try{if(ctx&&dirty()){e.preventDefault();e.returnValue=''}}catch(x){}});
+/* ===== 공유 저장 (GitHub 저장소에 호기별 JSON) ===== */
+const GH_URL='https://script.google.com/macros/s/AKfycbzI-bynIm5A0xVAXqspybzntg5H8YvSmMoD638ogrSkZ4CtzarFQEk7pMEzzYoBg5Q/exec';
+const GH={c:{url:GH_URL,key:'',repo:'',br:'',dir:'data',tok:'',auto:true},D:{},sy:new Set(),view:'',tab:'r',fd:'',fu:'',msg:'',busy:0};
+let GB={r:{},iss:[]};
+try{Object.assign(GH.c,JSON.parse(localStorage.getItem('sbr-gh')||'{}'))}catch(e){}
+if(!String(GH.c.url||'').trim())GH.c.url=GH_URL;
+const ghSv=()=>{try{localStorage.setItem('sbr-gh',JSON.stringify(GH.c))}catch(e){}};
+const ghUrl=()=>/^https:\/\/script\.google\.com\/.+\/exec/.test(String(GH.c.url||'').trim());
+const ghOk=()=>ghUrl()||/^[\w.-]+\/[\w.-]+$/.test(String(GH.c.repo||'').trim());
+const ghReady=()=>ghUrl()||(ghOk()&&!!GH.c.tok);
+try{const q=new URLSearchParams(location.search);if(q.get('gs')){GH.c.url=q.get('gs');GH.c.key=q.get('gk')||'';GH.c.auto=true;ghSv();history.replaceState(null,'',location.pathname);setTimeout(()=>toast('공유 서버가 설정됐어요'),700)}}catch(e){}
+const GS_CODE="// SBR 공유 서버 (Google Apps Script)\n// 호기별 체크리스트·특이사항을 구글 드라이브의 \"SBR공유\" 폴더에 호기별 파일로 저장합니다.\nconst KEY = '';          // 선택: 팀 암호. 비워두면 주소(링크)를 아는 사람은 누구나 저장·조회할 수 있어요.\nconst FOLDER = 'SBR공유';\n\nfunction folder_() { const it = DriveApp.getFoldersByName(FOLDER); return it.hasNext() ? it.next() : DriveApp.createFolder(FOLDER); }\nfunction safe_(u) { return String(u || '호기').replace(/[\\\\/:*?\"<>|#%\\s]+/g, '_').slice(0, 80); }\nfunction file_(name, create) {\n  const f = folder_(), it = f.getFilesByName(safe_(name) + '.json');\n  if (it.hasNext()) return it.next();\n  return create ? f.createFile(safe_(name) + '.json', '{}', MimeType.PLAIN_TEXT) : null;\n}\nfunction out_(o) { return ContentService.createTextOutput(JSON.stringify(o)).setMimeType(ContentService.MimeType.JSON); }\nfunction auth_(k) { return !KEY || k === KEY; }\n\nfunction doGet(e) {\n  const p = (e && e.parameter) || {};\n  if (!auth_(p.key)) return out_({ ok: false, error: 'key' });\n  try {\n    if (p.action === 'all') {\n      const o = {}, it = folder_().getFiles();\n      while (it.hasNext()) {\n        const f = it.next(), n = f.getName();\n        if (!/\\.json$/.test(n)) continue;\n        try { o[n.replace(/\\.json$/, '')] = JSON.parse(f.getBlob().getDataAsString()); } catch (x) {}\n      }\n      return out_({ ok: true, units: o });\n    }\n    if (p.action === 'get') {\n      const f = file_(p.unit, false);\n      if (!f) return out_({ ok: true, none: true });\n      const d = JSON.parse(f.getBlob().getDataAsString());\n      return out_({ ok: true, ver: d._v || 0, data: d });\n    }\n    return out_({ ok: true, ping: true });\n  } catch (err) { return out_({ ok: false, error: String(err) }); }\n}\n\nfunction doPost(e) {\n  const lock = LockService.getScriptLock();\n  lock.waitLock(20000);\n  try {\n    const b = JSON.parse(e.postData.contents);\n    if (!auth_(b.key)) return out_({ ok: false, error: 'key' });\n    if (b.action !== 'put') return out_({ ok: false, error: 'action' });\n    const f = file_(b.unit, true);\n    let cur = {};\n    try { cur = JSON.parse(f.getBlob().getDataAsString()); } catch (x) {}\n    const cv = cur._v || 0;\n    if ((b.ver || 0) !== cv) return out_({ ok: false, conflict: true, ver: cv });\n    const d = b.data; d._v = cv + 1;\n    f.setContent(JSON.stringify(d));\n    return out_({ ok: true, ver: d._v });\n  } catch (err) { return out_({ ok: false, error: String(err) }); }\n  finally { lock.releaseLock(); }\n}\n";
+async function ghS(o){
+ const u=GH.c.url.trim(),k=GH.c.key||'';let r;
+ if(o.post)r=await fetch(u,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({...o.post,key:k}),redirect:'follow'});
+ else r=await fetch(u+'?'+new URLSearchParams({...o.q,key:k,t:Date.now()}),{cache:'no-store',redirect:'follow'});
+ let j=null;try{j=await r.json()}catch(e){}
+ if(!j){const er=new Error('서버 응답을 읽을 수 없어요. 주소가 맞는지, 배포의 액세스가 "모든 사용자"인지 확인하세요');er.status=0;throw er}
+ if(j.conflict){const er=new Error('conflict');er.status=409;throw er}
+ if(!j.ok){const er=new Error(j.error==='key'?'암호가 맞지 않아요':String(j.error||'서버 오류'));er.status=j.error==='key'?401:500;throw er}
+ return j}
+const GF=['g','d','w','w2','c','note','sp'];
+const b64e=s=>{const u=new TextEncoder().encode(s);let r='';for(let i=0;i<u.length;i+=8192)r+=String.fromCharCode.apply(null,u.subarray(i,i+8192));return btoa(r)};
+const b64d=s=>new TextDecoder().decode(Uint8Array.from(atob(String(s).replace(/\s/g,'')),c=>c.charCodeAt(0)));
+const ghName=n=>String(n||'호기').replace(/[\\/:*?"<>|#%\s]+/g,'_').replace(/^\.+/,'').slice(0,80)||'호기';
+const ghDir=()=>String(GH.c.dir||'data').replace(/^\/+|\/+$/g,'').split('/').map(encodeURIComponent).join('/');
+const ghRef=()=>GH.c.br?'?ref='+encodeURIComponent(GH.c.br.trim()):'';
+const ghFile=nm=>`/contents/${ghDir()}/${encodeURIComponent(nm)}.json`;
+async function ghApi(method,path,body){
+ const h={Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'};
+ if(GH.c.tok)h.Authorization='Bearer '+GH.c.tok.trim();if(body)h['Content-Type']='application/json';
+ const r=await fetch('https://api.github.com/repos/'+GH.c.repo.trim()+path,{method,headers:h,body:body?JSON.stringify(body):undefined,cache:'no-store'});
+ let j=null;try{j=await r.json()}catch(e){}
+ if(!r.ok){const e=new Error((j&&j.message)||('HTTP '+r.status));e.status=r.status;throw e}return j}
+function ghErr(e){const s=e&&e.status;
+ if(s===401)return ghUrl()?'암호가 맞지 않아요':'토큰이 올바르지 않거나 만료됐어요';
+ if(s===403)return '권한이 없거나 요청 한도를 넘었어요 (토큰의 Contents 권한을 확인하세요)';
+ if(s===404)return '저장소 또는 폴더를 찾을 수 없어요 (저장소 이름과 토큰 권한을 확인하세요)';
+ if(s===409||s===422)return '다른 사람이 동시에 저장했거나 저장소가 비어 있어요. 다시 시도해 주세요';
+ if(e instanceof TypeError)return '네트워크 연결을 확인하세요 (이 화면에서는 GitHub에 접속할 수 없을 수 있어요)';
+ return String(e&&e.message||e)}
+async function ghGet(nm){if(ghUrl()){const j=await ghS({q:{action:'get',unit:nm}});return j.none?null:{sha:j.ver||0,data:j.data}}
+ try{const j=await ghApi('GET',ghFile(nm)+ghRef());return{sha:j.sha,data:JSON.parse(b64d(j.content))}}catch(e){if(e.status===404)return null;throw e}}
+const ik=x=>[x.m,x.dy,x.ch,x.u,x.it,x.is,x.nt].map(v=>String(v==null?'':v)).join('\u0001');
+const pk=x=>{const o={};GF.forEach(k=>{if(x[k])o[k]=x[k]});return o};
+const gchg=n=>{const x=S.r[n]||{},b=GB.r[n]||{};return GF.some(k=>(x[k]||'')!==(b[k]||''))};
+function ghMerge(d,now){
+ d.v=1;d.r=d.r||{};d.iss=d.iss||[];const by=S.me||'',syn=GH.sy.has(ghName(ctx.unit));let nc=0,ni=0;
+ for(const [n,st,un,kd,it] of D){const x=S.r[n]||{},fl=GF.some(k=>x[k]),meta={i:it,un,kd,st,at:now,by};
+  if(gchg(n)){if(fl){d.r[n]={...pk(x),...meta};nc++}else if(d.r[n]){delete d.r[n];nc++}}
+  else if(fl&&!d.r[n]&&!syn){d.r[n]={...pk(x),...meta};nc++}}
+ const rk=new Set(d.iss.map(ik)),lk=new Set(S.iss.map(ik)),bk=new Set(GB.iss.map(ik));
+ S.iss.forEach(x=>{const k=ik(x);if(!rk.has(k)&&(!bk.has(k)||!syn)){d.iss.push({m:x.m,dy:x.dy,ch:x.ch,u:x.u,it:x.it,is:x.is,nt:x.nt,at:now,by});rk.add(k);ni++}});
+ GB.iss.forEach(x=>{const k=ik(x);if(!lk.has(k)&&rk.has(k)){d.iss=d.iss.filter(y=>ik(y)!==k);rk.delete(k);ni++}});
+ if(nc+ni){d.unit=ctx.unit;d.kind=rKind();d.file=ctx.name;d.tot=D.length;d.done=Object.values(d.r).filter(x=>x.g==='완료').length;d.at=now;d.by=by}
+ return{nc,ni}}
+async function ghPush(){
+ if(!ctx)throw new Error('먼저 엑셀 파일을 여세요');
+ if(!ghOk())throw new Error('공유 저장소가 설정되지 않았어요');
+ if(!ghUrl()&&!GH.c.tok)throw new Error('토큰이 필요해요 (공유 설정에서 입력)');
+ const nm=ghName(ctx.unit);let res;
+ for(let t=0;t<4;t++){
+  const rm=await ghGet(nm),d=rm?rm.data:{v:1,r:{},iss:[]},c=ghMerge(d,new Date().toISOString());
+  if(!(c.nc+c.ni)){res=c;break}
+  try{if(ghUrl())await ghS({post:{action:'put',unit:nm,ver:rm?rm.sha:0,data:d,by:S.me||''}});
+   else{const body={message:`${ctx.unit} · ${S.me||'익명'} — 체크 ${c.nc}건, 특이사항 ${c.ni}건`,content:b64e(JSON.stringify(d,null,1))};
+    if(rm)body.sha=rm.sha;if(GH.c.br)body.branch=GH.c.br.trim();await ghApi('PUT',ghFile(nm),body)}
+   GH.D[nm]=d;res=c;break}catch(e){if((e.status===409||e.status===422)&&t<3)continue;throw e}}
+ GB=clone({r:S.r,iss:S.iss});GH.sy.add(nm);return res}
+async function ghPull(){
+ if(!ctx)throw new Error('먼저 엑셀 파일을 여세요');if(!ghOk())throw new Error('공유 저장소가 설정되지 않았어요');
+ const nm=ghName(ctx.unit),rm=await ghGet(nm);if(!rm)return{nc:0,ni:0,none:1};
+ const d=rm.data;let nc=0,ni=0;
+ for(const [n] of D){const y=(d.r||{})[n];if(!y||gchg(n))continue;const x=rec(n);let any=false;
+  if(y.g==='완료'&&x.g!=='완료'){GF.forEach(k=>{if((y[k]||'')!==(x[k]||'')){x[k]=y[k]||'';any=true}})}
+  else GF.forEach(k=>{if(k!=='g'&&!x[k]&&y[k]){x[k]=y[k];any=true}});
+  if(any){nc++;GB.r[n]=clone(x)}}
+ const lk=new Set(S.iss.map(ik)),bk=new Set(GB.iss.map(ik));
+ (d.iss||[]).forEach(y=>{const k=ik(y);if(!lk.has(k)&&!bk.has(k)){const o={m:y.m,dy:y.dy,ch:y.ch,u:y.u,it:y.it,is:y.is,nt:y.nt};S.iss.push(o);GB.iss.push(clone(o));lk.add(k);ni++}});
+ GH.D[nm]=d;GH.sy.add(nm);if(nc+ni){save();draw();issues()}return{nc,ni}}
+async function ghAfterSave(){
+ if(!GH.c.auto||!ghReady())return;
+ try{const c=await ghPush();toast(c.nc+c.ni?`공유 저장 완료 (체크 ${c.nc}건, 특이사항 ${c.ni}건)`:'공유에 올릴 새 변경이 없어요')}
+ catch(e){toast('공유 저장 실패: '+ghErr(e))}}
+const ghT=iso=>{const d=new Date(iso);if(!iso||isNaN(d))return '';const p=n=>String(n).padStart(2,'0');return `${d.getMonth()+1}/${d.getDate()} ${p(d.getHours())}:${p(d.getMinutes())}`};
+async function ghLoadAll(){
+ if(ghUrl()){const j=await ghS({q:{action:'all'}});GH.D=j.units||{};return}
+ const ls=await ghApi('GET',`/contents/${ghDir()}${ghRef()}`).catch(e=>{if(e.status===404)return[];throw e});
+ const fs=(Array.isArray(ls)?ls:[]).filter(x=>x.type==='file'&&/\.json$/i.test(x.name)).slice(0,60),o={};
+ await Promise.all(fs.map(async f=>{try{const j=await ghApi('GET',`/contents/${ghDir()}/${encodeURIComponent(f.name)}${ghRef()}`);o[f.name.replace(/\.json$/i,'')]=JSON.parse(b64d(j.content))}catch(e){}}));
+ GH.D=o}
+const GW='일월화수목금토';
+function ghCfg(){const c=GH.c,rd=ghReady();
+ return `<details class="ck-s" id="gh-cfg"${rd&&!GH.er?'':' open'}><summary><span class="ck-t">연결 설정</span><span class="ck-c${rd?' ok':''}">${rd?'설정됨':'필요'}</span></summary><div class="gh-f">
+ <label>공유 서버 주소 (기본으로 들어 있어요 · 바꿀 때만 수정)<input data-gk="url" value="${esc(c.url)}" placeholder="https://script.google.com/macros/s/.../exec" autocapitalize="off" autocomplete="off"></label>
+ <label>암호 (선택 · 서버 코드의 KEY와 같게)<input data-gk="key" value="${esc(c.key)}" placeholder="비워두면 암호 없음" autocomplete="off"></label>
+ <label class="sw"><input type="checkbox" data-gk="auto"${c.auto?' checked':''}>엑셀 저장할 때 공유에도 함께 저장</label>
+ <button class="btn g" type="button" id="gh-t">연결 테스트</button><p class="h" id="gh-tm"></p>
+ ${ghUrl()?'<button class="btn g" type="button" id="gh-l">팀원용 설정 링크 복사</button><p class="h">팀원이 이 링크를 한 번 열면 서버 주소가 자동으로 설정돼요.</p>':''}
+ <details class="gh-g"><summary>공유 서버를 새로 만들려면 ▾</summary><ol>
+ <li><b>script.google.com</b>에서 새 프로젝트를 만들어요.</li>
+ <li>아래 <b>서버 코드 복사</b>를 눌러 복사한 뒤, 코드 편집기의 내용을 모두 지우고 붙여넣고 저장해요.</li>
+ <li>오른쪽 위 <b>배포 → 새 배포</b> → 유형 <b>웹 앱</b> → 실행 계정 <b>나</b>, 액세스 권한 <b>모든 사용자</b> → 배포. 처음에는 "권한 검토"에서 내 구글 계정으로 허용해요.</li>
+ <li>나온 <b>웹 앱 URL</b>(…/exec)을 위 주소 칸에 붙여넣고 <b>연결 테스트</b>를 눌러요.</li>
+ <li><b>팀원용 설정 링크 복사</b>로 링크를 만들어 팀원에게 보내요. 데이터는 내 구글 드라이브의 "SBR공유" 폴더에 호기별 파일로 쌓여요.</li>
+ </ol><button class="btn g" type="button" id="gh-c">서버 코드 복사</button><div class="gtip">주소(링크)를 아는 사람은 누구나 저장·조회할 수 있어요. 외부에 공개하지 말고, 필요하면 서버 코드의 KEY에 암호를 넣으세요.</div></details>
+ <details class="gh-g"><summary>GitHub 저장소로 쓰기 (고급 · 토큰 필요) ▾</summary><div class="gh-f" style="padding:6px 0 0">
+ <label>저장소 (소유자/이름)<input data-gk="repo" value="${esc(c.repo)}" placeholder="예: myname/sbr-data" autocapitalize="off" autocomplete="off"></label>
+ <label>폴더<input data-gk="dir" value="${esc(c.dir)}" placeholder="data" autocapitalize="off"></label>
+ <label>브랜치 (비우면 기본 브랜치)<input data-gk="br" value="${esc(c.br)}" placeholder="main" autocapitalize="off"></label>
+ <label>토큰 (이 기기에만 저장돼요)<input data-gk="tok" type="password" value="${esc(c.tok)}" placeholder="github_pat_..." autocomplete="off"></label>
+ <div class="gtip">공유 서버 주소가 있으면 서버가 우선이에요. GitHub는 비공개 저장소와 Contents 읽기·쓰기 권한 토큰이 필요하고, 공개 저장소는 누구나 볼 수 있어요.</div></div></details>
+ </div></details>`}
+function ghUnitV(k){const d=GH.D[k];if(!d)return '';
+ const r=Object.entries(d.r||{}).map(([n,x])=>({n:+n,...x})).filter(x=>x.g==='완료'),iss=d.iss||[];
+ const dm=new Map(),um=new Set();r.forEach(x=>{const dt=nd(x.d||'');if(dt)dm.set(dt,(dm.get(dt)||0)+1);if(x.un)um.add(x.un)});
+ if(GH.fd&&!dm.has(GH.fd))GH.fd='';if(GH.fu&&!um.has(GH.fu))GH.fu='';
+ let h=`<button type="button" class="btn g" data-gb="1" style="margin:0 0 8px">‹ 호기 목록</button><div class="ck-sum"><b>${esc(d.unit||k)}</b><span>${d.done||0}/${d.tot||0} 완료 · 마지막 저장 ${esc(ghT(d.at))} ${esc(d.by||'')}</span></div>
+ <div class="ck-f"><button type="button" data-gt="r" aria-pressed="${GH.tab==='r'}">체크리스트 ${r.length}</button><button type="button" data-gt="i" aria-pressed="${GH.tab==='i'}">특이사항 ${iss.length}</button></div>`;
+ if(GH.tab==='i')return h+(iss.slice().reverse().map(x=>`<div class="iss" style="margin-bottom:6px"><small>${esc(x.m)}/${esc(x.dy)}  ${esc(x.ch)}  ${esc(x.u)}${x.by?' · '+esc(x.by):''} ${esc(ghT(x.at))}</small><b>${esc(x.it)}</b><div>${esc(x.is)}</div>${x.nt?`<small>${esc(x.nt)}</small>`:''}</div>`).join('')||'<p class="h">등록된 특이사항이 없어요.</p>');
+ h+=`<div class="q"><select data-gf="fd"><option value="">전체 날짜</option>${[...dm.keys()].sort().reverse().map(dt=>`<option value="${dt}"${GH.fd===dt?' selected':''}>${+dt.slice(5,7)}월 ${+dt.slice(8)}일(${GW[new Date(+dt.slice(0,4),+dt.slice(5,7)-1,+dt.slice(8)).getDay()]}) · ${dm.get(dt)}건</option>`).join('')}</select><select data-gf="fu"><option value="">전체 Unit</option>${[...um].map(u=>`<option${GH.fu===u?' selected':''}>${esc(u)}</option>`).join('')}</select></div>`;
+ const L=r.filter(x=>(!GH.fd||nd(x.d||'')===GH.fd)&&(!GH.fu||x.un===GH.fu)).sort((a,b)=>nd(b.d||'').localeCompare(nd(a.d||''))||a.n-b.n);
+ let last=null;
+ h+=L.map(x=>{const dt=nd(x.d||''),hd=dt!==last?(last=dt,`<h3 class="ck-h">${dt?kd(dt):'날짜 없음'}</h3>`):'';
+  return hd+`<div class="iss" style="margin-bottom:6px"><b>${esc(x.i||('No.'+x.n))}</b><small>No.${x.n} · ${esc(x.un||'-')} · ${esc(x.kd||'-')} · ${esc([x.w,x.w2].filter(Boolean).join(', ')||'-')}${x.at?' · '+esc(ghT(x.at)):''}</small>${x.note?`<small>비고: ${esc(x.note)}</small>`:''}${x.sp?`<small>특이사항: ${esc(x.sp)}</small>`:''}</div>`}).join('')||'<p class="h">조건에 맞는 항목이 없어요.</p>';
+ return h}
+function ghDraw(){
+ const b=$('#gh-b');let h=ghCfg();
+ if(!GH.view){
+  h+=`<div class="rp-act"><button class="btn g" type="button" id="gh-rf">↻ 새로고침</button>${ctx?'<button class="btn" type="button" id="gh-ps">⬆ 지금 공유 저장</button>':''}</div>`+(ctx?'<div class="rp-act"><button class="btn g" type="button" id="gh-pl">⬇ 공유 내용을 내 체크리스트에 가져오기</button></div><p class="h">가져오면 다른 사람이 완료한 항목과 특이사항이 이 화면의 체크리스트에 들어와요. 공수 자동 입력이 켜져 있으면 공수 시트에도 반영돼요. 이미 내가 바꾼 칸은 건드리지 않아요.</p>':'');
+  if(GH.msg)h+=`<p class="h">${esc(GH.msg)}</p>`;
+  const ks=Object.keys(GH.D).sort((a,c)=>(GH.D[a].unit||a).localeCompare(GH.D[c].unit||c,'ko',{numeric:true}));
+  h+=ks.map(k=>{const d=GH.D[k],tot=d.tot||0,dn=d.done||0,p=tot?Math.round(dn/tot*100):0;
+   return `<button type="button" class="gh-u" data-gu="${esc(k)}"><b>${esc(d.unit||k)}</b><small>${esc(d.kind||'')} · ${dn}/${tot} (${p}%) · 특이사항 ${(d.iss||[]).length}건</small><i><u style="width:${p}%"></u></i><small>마지막 저장 ${esc(ghT(d.at))} ${esc(d.by||'')}</small></button>`}).join('')||(ghOk()?'<p class="h">아직 공유된 호기가 없어요. 엑셀을 열고 저장하면 여기에 쌓여요. ↻ 새로고침을 눌러 확인하세요.</p>':'');
+ }else h+=ghUnitV(GH.view);
+ b.innerHTML=h}
+async function ghRefresh(){
+ if(!ghOk()){GH.msg='';ghDraw();return}
+ GH.msg='불러오는 중…';ghDraw();
+ GH.er=0;try{await ghLoadAll();GH.msg=''}catch(e){GH.er=1;GH.msg='불러오지 못했어요: '+ghErr(e)}
+ ghDraw()}
+function ghOpen(){GH.view='';$('#gh').hidden=false;$('#gh').scrollTop=0;ghDraw();if(ghOk())ghRefresh()}
+$('#gh-x').onclick=()=>{$('#gh').hidden=true};
+$('#gh-b').oninput=e=>{const k=e.target.dataset&&e.target.dataset.gk;if(!k||k==='auto')return;GH.c[k]=e.target.value;ghSv()};
+$('#gh-b').onchange=e=>{const t=e.target,k=t.dataset&&t.dataset.gk;
+ if(k==='auto'){GH.c.auto=t.checked;ghSv();return}
+ if(k){GH.c[k]=t.value.trim();t.value=GH.c[k];ghSv();return}
+ if(t.dataset.gf){GH[t.dataset.gf]=t.value;ghDraw()}};
+$('#gh-b').onclick=async e=>{const t=e.target.closest('button');if(!t)return;
+ if(t.id==='gh-t'){const m=$('#gh-tm');if(!ghOk()){m.textContent='공유 서버 주소를 입력하세요 (GitHub는 "소유자/이름" 형태)';return}m.textContent='확인 중…';
+  try{if(ghUrl()){await ghS({q:{action:'ping'}});m.textContent='연결됨 · 구글 서버 · 링크를 아는 사람은 누구나 저장·조회할 수 있어요';return}
+   const j=await ghApi('GET','');const w=j.permissions&&j.permissions.push;m.textContent=`연결됨 · ${j.private?'비공개':'⚠ 공개'} 저장소 · ${w?'쓰기 가능':(GH.c.tok?'읽기만 가능 (토큰 권한을 확인하세요)':'토큰이 없어 읽기만 가능')}`+(j.private?'':' · 누구나 내용을 볼 수 있어요')}catch(er){m.textContent='연결 실패: '+ghErr(er)}return}
+ if(t.id==='gh-rf'){ghRefresh();return}
+ if(t.id==='gh-c'){try{await navigator.clipboard.writeText(GS_CODE);toast('서버 코드를 복사했어요')}catch(er){toast('복사하지 못했어요. 다시 시도하세요')}return}
+ if(t.id==='gh-l'){const u=location.origin+location.pathname+'?gs='+encodeURIComponent(GH.c.url.trim())+(GH.c.key?'&gk='+encodeURIComponent(GH.c.key):'');try{await navigator.clipboard.writeText(u);toast('팀원용 링크를 복사했어요')}catch(er){toast('복사하지 못했어요')}return}
+ if(t.id==='gh-ps'){GH.msg='공유 저장 중…';ghDraw();try{const c=await ghPush();GH.msg=c.nc+c.ni?`공유 저장 완료 (체크 ${c.nc}건, 특이사항 ${c.ni}건)`:'공유에 올릴 새 변경이 없어요';await ghLoadAll()}catch(er){GH.msg='공유 저장 실패: '+ghErr(er)}ghDraw();return}
+ if(t.id==='gh-pl'){GH.msg='가져오는 중…';ghDraw();try{const c=await ghPull();GH.msg=c.none?'이 호기의 공유 기록이 아직 없어요':(c.nc+c.ni?`가져왔어요 (체크 ${c.nc}건, 특이사항 ${c.ni}건)`:'새로 가져올 내용이 없어요')}catch(er){GH.msg='가져오기 실패: '+ghErr(er)}ghDraw();return}
+ if(t.dataset.gu){GH.view=t.dataset.gu;GH.tab='r';GH.fd=GH.fu='';ghDraw();$('#gh').scrollTop=0;return}
+ if(t.dataset.gb){GH.view='';ghDraw();return}
+ if(t.dataset.gt){GH.tab=t.dataset.gt;ghDraw();return}};
+['#gh-o2','#gh-o3'].forEach(s=>{const b=$(s);if(b)b.onclick=ghOpen});
+
 if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
 </script></body></html>
