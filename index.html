@@ -4,7 +4,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="호기 작업입력">
 <meta name="theme-color" content="#0e7c66"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
-<title>장비기술 9팀 작업보고서 자동 입력기</title>
+<title>5KCEH920호기 TIER1 작업 입력</title>
 <style>
 :root{--bg:#edf0f2;--sf:#fff;--ink:#18222d;--mute:#5d6b78;--ln:#d5dbe1;--ok:#0e7c66;--okbg:#dff3ee;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12181e;--sf:#1b242c;--ink:#e8edf1;--mute:#93a1ae;--ln:#2d3945;--ok:#3cc5a5;--okbg:#17332d;color-scheme:dark}}
@@ -55,7 +55,7 @@ h3{font-size:14px;margin:18px 0 4px}
 .btn{padding:11px 14px;border:0;border-radius:8px;background:var(--ink);color:var(--sf);font:inherit;font-weight:600;cursor:pointer;width:100%;margin-top:8px}
 .btn.g{background:none;color:var(--ink);border:1px solid var(--ln)}
 .iss{background:var(--sf);border:1px solid var(--ln);border-radius:10px;padding:10px 12px;font-size:14px}
-.iss small{color:var(--mute);display:block}
+.iss small{color:var(--mute);display:block}.iss.rv{opacity:.62}.iss.rv b{text-decoration:line-through}.iss .rb{color:var(--ok);font-weight:700;margin-left:10px}.rvt{display:inline-block;font-size:12px;font-weight:700;color:var(--ok);background:var(--okbg);border-radius:10px;padding:1px 8px;margin:2px 0}
 .iss button{float:right;background:none;border:0;color:var(--mute);font:inherit;font-size:12px;cursor:pointer}
 p.h{color:var(--mute);font-size:13px;margin:4px 0}
 #toast{position:fixed;left:50%;bottom:calc(76px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--sf);padding:10px 16px;border-radius:20px;font-size:14px;opacity:0;pointer-events:none;transition:opacity .2s;z-index:20}
@@ -111,7 +111,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
    <label class="w">비고<input id="i-nt"></label>
   </div>
   <button class="btn" id="i-add">특이사항 추가</button>
-  <div id="i-ls" style="display:grid;gap:6px;margin-top:14px"></div>
+  <div class="q" style="margin:14px 0 0"><select id="i-fl" aria-label="특이사항 보기"><option value="">전체</option><option value="n">미해결</option><option value="y">해결됨</option></select></div><div id="i-ls" style="display:grid;gap:6px;margin-top:8px"></div>
  </section>
  <section id="v-sh" hidden>
   <div class="sq"><button class="btn g" id="ck-o" type="button">✔ 점검 · 미입력 / Spec 벗어남 확인</button></div>
@@ -140,7 +140,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
   <h3>파일</h3><button class="btn g" id="op2">다른 호기 파일 열기</button>
   <button class="btn g" id="rs">이 파일 입력 되돌리기</button>
   <p class="h">다른 앱에 다녀와도 작업이 복구되지만, 작업을 마치면 꼭 엑셀로 저장하세요.</p>
-  <p class="h">앱 버전 v54</p>
+  <p class="h">앱 버전 v55</p>
  </section>
 </main>
 <div id="gh" hidden><div class="ck-top"><b>☁ 장비 현황</b><button type="button" id="gh-x" aria-label="닫기">✕</button></div><div id="gh-b"></div></div>
@@ -159,7 +159,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 <li><b>현황</b> — 진행률을 보고, <b>📋 일일보고 만들기</b>로 보고 글을 만들어 복사·공유해요.</li>
 <li><b>공유</b> — 설정 탭의 <b>☁ 공유 설정</b>의 공유 서버가 기본으로 연결돼 있어서 따로 설정하지 않아도, 엑셀을 저장할 때 체크리스트·특이사항이 호기별로 함께 올라가요. 현황 탭의 <b>☁ 장비 현황</b>에서 모든 호기의 진행률과 미완료·완료 항목, 특이사항을 호기별로 검색해서 볼 수 있어요.</li>
 <li><b>저장</b> — 위쪽 "엑셀 저장"을 누르면 <b>원본이름_입력.xlsx</b>로 저장돼요. 다른 앱에 다녀와도 작업은 복구되지만, 작업을 마치면 꼭 저장하세요.</li>
-</ol><div class="gtip">팁: 설정 탭에 내 이름을 적어두면 체크할 때 작업자가 자동으로 들어가요. 사진 영역은 엑셀에서 직접 붙여넣어야 해요.</div></details><details class="guide log"><summary>업데이트 내역</summary><div class="lg"><b>v54</b><small>11/25</small><ul><li>장비 현황: 완료 항목 목록에서 항목별 저장 시각 표시 제거</li></ul></div><div class="lg"><b>v53</b><small>11/25</small><ul><li>화면 맨 위에 '☁ 장비 현황' 버튼 추가 (파일을 열기 전에도 바로 들어갈 수 있음)</li></ul></div><div class="lg"><b>v52</b><small>11/25</small><ul><li>화면 맨 위에 '열기' 버튼 추가 (엑셀 저장 옆). 저장하지 않은 입력이 있으면 한 번 더 눌러야 새 파일이 열려요</li></ul></div><div class="lg"><b>v51</b><small>11/25</small><ul><li>자동 복구: 다른 앱에 갔다 와서 앱이 새로 열려도 열어 둔 엑셀과 입력 내용(체크·스펙·특이사항·화면 위치)을 그대로 복구 (이 기기에만 임시 저장, 7일 후 삭제, 설정에서 끄기·지우기)</li></ul></div><div class="lg"><b>v50</b><small>11/25</small><ul><li>장비 현황: 미완료가 남은 호기를 목록 맨 위에 표시(전부 완료한 호기는 아래), 호기를 열면 미완료 항목이 먼저 표시</li><li>같은 호기 파일을 열어 둔 경우 예전 저장 데이터도 미완료 목록 표시</li></ul></div><div class="lg"><b>v49</b><small>11/25</small><ul><li>'공유 현황'을 '장비 현황'으로 이름 변경</li><li>장비 현황: 호기별 미완료 체크리스트 보기(Unit별), 호기 검색 추가 (미완료 목록은 최신 앱으로 한 번 저장하면 표시)</li></ul></div><div class="lg"><b>v48</b><small>11/25</small><ul><li>공유 서버 주소를 앱에 기본 포함: 따로 입력하거나 설정하지 않아도 모든 사용자가 바로 공유 저장·조회</li></ul></div><div class="lg"><b>v47</b><small>11/25</small><ul><li>공유 저장: 토큰 없이 쓰는 구글 Apps Script 공유 서버 지원 (주소만 넣으면 누구나 저장·조회)</li><li>서버 코드 복사, 팀원용 설정 링크 복사 기능 (GitHub 저장소 방식은 고급 옵션으로 유지)</li></ul></div><div class="lg"><b>v46</b><small>11/25</small><ul><li>공유 저장: 엑셀을 저장할 때 체크리스트·특이사항을 GitHub 저장소에 호기별(JSON)로 함께 저장</li><li>☁ 공유 현황: 호기 목록, 진행률, 날짜·Unit별 완료 항목, 특이사항 조회 (엑셀을 열지 않아도 볼 수 있음)</li><li>공유 내용을 내 체크리스트에 가져오기, 동시 저장 충돌 시 자동 병합</li></ul></div><div class="lg"><b>v45</b><small>11/25</small><ul><li>일일보고: 진행률 95% 이상은 100%로 표기 (5% 단위, 시작했으면 최소 5%)</li></ul></div><div class="lg"><b>v44</b><small>11/25</small><ul><li>일일보고: 진행률을 5% 단위로 표기 (완료 전에는 최대 95%, 시작했으면 최소 5%, 전부 끝나면 100%)</li></ul></div><div class="lg"><b>v43</b><small>11/25</small><ul><li>'시트' 탭 이름을 '스펙'으로 변경</li><li>스펙 화면: 시트·구역이 하나뿐이면 중복 선택칸(Sheet1) 숨김, 기본 이름 Sheet1은 '스펙'으로 표시</li></ul></div><div class="lg"><b>v42</b><small>11/25</small><ul><li>체크리스트: 완료일 기준으로 보는 '날짜' 필터 추가 (완료한 날짜가 목록으로 나오고 날짜별 완료 건수 표시, 날짜를 고르면 그날 완료한 항목만 표시)</li></ul></div><div class="lg"><b>v41</b><small>11/25</small><ul><li>체크리스트: 방금 완료 체크한 항목이 다른 탭에 다녀와도 '미완료' 목록에서 사라지지 않음 (필터를 바꾸거나 파일을 다시 열 때 정리됨)</li></ul></div><div class="lg"><b>v40</b><small>11/25</small><ul><li>일일보고: 대문자로 그대로 둘 약어 기본 목록 확대 (DIW, UPW, DI, CCR, FSC, BSC, SAC, EBR, EBRM, HRVA, LFC, FDM, CCD, OHT, EMO, DC, RPM, FFU, OK, SABRE, CM, EA, UI, LAM 추가)</li></ul></div><div class="lg"><b>v39</b><small>11/25</small><ul><li>일일보고: 대문자로 그대로 둘 단어에 SRD, DUET, APT, AWC 추가 (FE, BE, PEM과 함께 기본 적용)</li></ul></div><div class="lg"><b>v38</b><small>11/25</small><ul><li>일일보고: 금일 작업의 대문자 영어를 첫 글자만 대문자로 표기 (ALIGNER VACCUM → Aligner Vaccum), FE·BE·PEM은 그대로 두고 보고서 설정에서 예외 단어 추가·삭제 가능</li></ul></div><div class="lg"><b>v37</b><small>11/25</small><ul><li>업데이트 내역 추가</li></ul></div><div class="lg"><b>v36</b><small>11/25</small><ul><li>첫 화면과 설정 탭에 사용 방법 추가</li></ul></div><div class="lg"><b>v35</b><small>11/25</small><ul><li>체크리스트: 파일을 열면 미완료 항목만 먼저 표시 (방금 체크한 항목은 바로 사라지지 않고, 다른 탭에 갔다 오면 정리)</li></ul></div><div class="lg"><b>v34</b><small>11/25</small><ul><li>일일보고: 마지막 문구 제거 (필요하면 보고서 설정에서 직접 입력)</li></ul></div><div class="lg"><b>v33</b><small>11/25</small><ul><li>엑셀 저장: 압축파일(zip)로 인식되던 문제 수정, 엑셀 형식으로 저장</li></ul></div><div class="lg"><b>v32</b><small>11/25</small><ul><li>일일보고: 한 유닛만 한 작업도 "Cell #1"처럼 표기</li><li>일일보고: 항목 이름에 Cell1 등이 들어 있어도 #번호로 정리하고 같은 작업은 한 줄로 합침</li></ul></div><div class="lg"><b>v31</b><small>11/25</small><ul><li>일일보고: 여러 유닛 작업을 "Cell #1, #2, #3"으로 표기</li></ul></div><div class="lg"><b>v30</b><small>11/25</small><ul><li>일일보고 자동 작성 (현황 탭): 작업인원·작업일수·진행률·금일 작업·특이사항을 양식대로 만들고 복사·공유</li><li>진행률 줄 이름·순서·포함 여부와 호기 번호, 단계(T1-1) 설정</li></ul></div><div class="lg"><b>v29</b><small>11/25</small><ul><li>Spec 자동 판정: 값을 입력하면 범위 안(초록) / 조정 필요(주황) / Spec 벗어남(빨강)을 바로 표시</li><li>점검 화면: 미입력 칸과 Spec 벗어난 칸을 구역별로 모아 보고, 누르면 해당 칸으로 이동</li></ul></div><div class="lg"><b>v28</b><small>11/24</small><ul><li>3D 시트 "6. 각 Cell's Chamber Level Check Data" 화면 정리, DUET1 left → DUET1 right 순서로 표시</li></ul></div><div class="lg"><b>v27</b><small>11/24</small><ul><li>9·10·13·14·15번 구역(PEM Level, PEM Spin RPM, FSC Nozzle, Wafer Rinse & CCR, CUP Open Speed) 화면 정리</li><li>엑셀의 "/" 표시 칸과 표 바깥 빈 칸은 입력칸에서 제외, 같은 단위·Spec은 한 번만 표시</li></ul></div><div class="lg"><b>v26</b><small>11/24</small><ul><li>8번 Cell Digi Pas 구역 정리: CELL별로 묶고 조정 전/후를 색으로 구분</li></ul></div><div class="lg"><b>v25 이전</b><ul><li>시트 입력을 칸마다 입력하는 카드 화면으로 개선, 조정 전(주황)/조정 후(초록) 구분</li><li>3D 장비 엑셀 인식 추가</li><li>공수 자동 입력: 고정 서식(Date yyyy-mm-dd, 작업구분 굵게, 행 높이 자동)</li><li>아이폰(웹앱) 지원, 엑셀 저장 시 서식과 다른 시트 유지</li></ul></div></details></template>
+</ol><div class="gtip">팁: 설정 탭에 내 이름을 적어두면 체크할 때 작업자가 자동으로 들어가요. 사진 영역은 엑셀에서 직접 붙여넣어야 해요.</div></details><details class="guide log"><summary>업데이트 내역</summary><div class="lg"><b>v55</b><small>11/25</small><ul><li>특이사항 '해결' 표시: 특이사항 탭에서 ✓ 해결 / 해결 취소, 미해결·해결됨 필터 (엑셀 특이사항 시트 J열에 '해결 11/25'로 저장)</li><li>장비 현황: 특이사항을 미해결 기본으로 보고 해결됨·전체로 전환, 호기 카드에 미해결 특이사항 수 표시, 해결 상태도 공유 저장·가져오기에 반영</li></ul></div><div class="lg"><b>v54</b><small>11/25</small><ul><li>장비 현황: 완료 항목 목록에서 항목별 저장 시각 표시 제거</li></ul></div><div class="lg"><b>v53</b><small>11/25</small><ul><li>화면 맨 위에 '☁ 장비 현황' 버튼 추가 (파일을 열기 전에도 바로 들어갈 수 있음)</li></ul></div><div class="lg"><b>v52</b><small>11/25</small><ul><li>화면 맨 위에 '열기' 버튼 추가 (엑셀 저장 옆). 저장하지 않은 입력이 있으면 한 번 더 눌러야 새 파일이 열려요</li></ul></div><div class="lg"><b>v51</b><small>11/25</small><ul><li>자동 복구: 다른 앱에 갔다 와서 앱이 새로 열려도 열어 둔 엑셀과 입력 내용(체크·스펙·특이사항·화면 위치)을 그대로 복구 (이 기기에만 임시 저장, 7일 후 삭제, 설정에서 끄기·지우기)</li></ul></div><div class="lg"><b>v50</b><small>11/25</small><ul><li>장비 현황: 미완료가 남은 호기를 목록 맨 위에 표시(전부 완료한 호기는 아래), 호기를 열면 미완료 항목이 먼저 표시</li><li>같은 호기 파일을 열어 둔 경우 예전 저장 데이터도 미완료 목록 표시</li></ul></div><div class="lg"><b>v49</b><small>11/25</small><ul><li>'공유 현황'을 '장비 현황'으로 이름 변경</li><li>장비 현황: 호기별 미완료 체크리스트 보기(Unit별), 호기 검색 추가 (미완료 목록은 최신 앱으로 한 번 저장하면 표시)</li></ul></div><div class="lg"><b>v48</b><small>11/25</small><ul><li>공유 서버 주소를 앱에 기본 포함: 따로 입력하거나 설정하지 않아도 모든 사용자가 바로 공유 저장·조회</li></ul></div><div class="lg"><b>v47</b><small>11/25</small><ul><li>공유 저장: 토큰 없이 쓰는 구글 Apps Script 공유 서버 지원 (주소만 넣으면 누구나 저장·조회)</li><li>서버 코드 복사, 팀원용 설정 링크 복사 기능 (GitHub 저장소 방식은 고급 옵션으로 유지)</li></ul></div><div class="lg"><b>v46</b><small>11/25</small><ul><li>공유 저장: 엑셀을 저장할 때 체크리스트·특이사항을 GitHub 저장소에 호기별(JSON)로 함께 저장</li><li>☁ 공유 현황: 호기 목록, 진행률, 날짜·Unit별 완료 항목, 특이사항 조회 (엑셀을 열지 않아도 볼 수 있음)</li><li>공유 내용을 내 체크리스트에 가져오기, 동시 저장 충돌 시 자동 병합</li></ul></div><div class="lg"><b>v45</b><small>11/25</small><ul><li>일일보고: 진행률 95% 이상은 100%로 표기 (5% 단위, 시작했으면 최소 5%)</li></ul></div><div class="lg"><b>v44</b><small>11/25</small><ul><li>일일보고: 진행률을 5% 단위로 표기 (완료 전에는 최대 95%, 시작했으면 최소 5%, 전부 끝나면 100%)</li></ul></div><div class="lg"><b>v43</b><small>11/25</small><ul><li>'시트' 탭 이름을 '스펙'으로 변경</li><li>스펙 화면: 시트·구역이 하나뿐이면 중복 선택칸(Sheet1) 숨김, 기본 이름 Sheet1은 '스펙'으로 표시</li></ul></div><div class="lg"><b>v42</b><small>11/25</small><ul><li>체크리스트: 완료일 기준으로 보는 '날짜' 필터 추가 (완료한 날짜가 목록으로 나오고 날짜별 완료 건수 표시, 날짜를 고르면 그날 완료한 항목만 표시)</li></ul></div><div class="lg"><b>v41</b><small>11/25</small><ul><li>체크리스트: 방금 완료 체크한 항목이 다른 탭에 다녀와도 '미완료' 목록에서 사라지지 않음 (필터를 바꾸거나 파일을 다시 열 때 정리됨)</li></ul></div><div class="lg"><b>v40</b><small>11/25</small><ul><li>일일보고: 대문자로 그대로 둘 약어 기본 목록 확대 (DIW, UPW, DI, CCR, FSC, BSC, SAC, EBR, EBRM, HRVA, LFC, FDM, CCD, OHT, EMO, DC, RPM, FFU, OK, SABRE, CM, EA, UI, LAM 추가)</li></ul></div><div class="lg"><b>v39</b><small>11/25</small><ul><li>일일보고: 대문자로 그대로 둘 단어에 SRD, DUET, APT, AWC 추가 (FE, BE, PEM과 함께 기본 적용)</li></ul></div><div class="lg"><b>v38</b><small>11/25</small><ul><li>일일보고: 금일 작업의 대문자 영어를 첫 글자만 대문자로 표기 (ALIGNER VACCUM → Aligner Vaccum), FE·BE·PEM은 그대로 두고 보고서 설정에서 예외 단어 추가·삭제 가능</li></ul></div><div class="lg"><b>v37</b><small>11/25</small><ul><li>업데이트 내역 추가</li></ul></div><div class="lg"><b>v36</b><small>11/25</small><ul><li>첫 화면과 설정 탭에 사용 방법 추가</li></ul></div><div class="lg"><b>v35</b><small>11/25</small><ul><li>체크리스트: 파일을 열면 미완료 항목만 먼저 표시 (방금 체크한 항목은 바로 사라지지 않고, 다른 탭에 갔다 오면 정리)</li></ul></div><div class="lg"><b>v34</b><small>11/25</small><ul><li>일일보고: 마지막 문구 제거 (필요하면 보고서 설정에서 직접 입력)</li></ul></div><div class="lg"><b>v33</b><small>11/25</small><ul><li>엑셀 저장: 압축파일(zip)로 인식되던 문제 수정, 엑셀 형식으로 저장</li></ul></div><div class="lg"><b>v32</b><small>11/25</small><ul><li>일일보고: 한 유닛만 한 작업도 "Cell #1"처럼 표기</li><li>일일보고: 항목 이름에 Cell1 등이 들어 있어도 #번호로 정리하고 같은 작업은 한 줄로 합침</li></ul></div><div class="lg"><b>v31</b><small>11/25</small><ul><li>일일보고: 여러 유닛 작업을 "Cell #1, #2, #3"으로 표기</li></ul></div><div class="lg"><b>v30</b><small>11/25</small><ul><li>일일보고 자동 작성 (현황 탭): 작업인원·작업일수·진행률·금일 작업·특이사항을 양식대로 만들고 복사·공유</li><li>진행률 줄 이름·순서·포함 여부와 호기 번호, 단계(T1-1) 설정</li></ul></div><div class="lg"><b>v29</b><small>11/25</small><ul><li>Spec 자동 판정: 값을 입력하면 범위 안(초록) / 조정 필요(주황) / Spec 벗어남(빨강)을 바로 표시</li><li>점검 화면: 미입력 칸과 Spec 벗어난 칸을 구역별로 모아 보고, 누르면 해당 칸으로 이동</li></ul></div><div class="lg"><b>v28</b><small>11/24</small><ul><li>3D 시트 "6. 각 Cell's Chamber Level Check Data" 화면 정리, DUET1 left → DUET1 right 순서로 표시</li></ul></div><div class="lg"><b>v27</b><small>11/24</small><ul><li>9·10·13·14·15번 구역(PEM Level, PEM Spin RPM, FSC Nozzle, Wafer Rinse & CCR, CUP Open Speed) 화면 정리</li><li>엑셀의 "/" 표시 칸과 표 바깥 빈 칸은 입력칸에서 제외, 같은 단위·Spec은 한 번만 표시</li></ul></div><div class="lg"><b>v26</b><small>11/24</small><ul><li>8번 Cell Digi Pas 구역 정리: CELL별로 묶고 조정 전/후를 색으로 구분</li></ul></div><div class="lg"><b>v25 이전</b><ul><li>시트 입력을 칸마다 입력하는 카드 화면으로 개선, 조정 전(주황)/조정 후(초록) 구분</li><li>3D 장비 엑셀 인식 추가</li><li>공수 자동 입력: 고정 서식(Date yyyy-mm-dd, 작업구분 굵게, 행 높이 자동)</li><li>아이폰(웹앱) 지원, 엑셀 저장 시 서식과 다른 시트 유지</li></ul></div></details></template>
 <div id="toast"></div>
 <script src="jszip.min.js"></script>
 <script>
@@ -199,7 +199,10 @@ function draw(){
 }
 function bars(title,i){const m=new Map();D.forEach(r=>{const k=r[i]||'-',a=m.get(k)||[0,0];a[1]++;if(isDone(r[0]))a[0]++;m.set(k,a)});
  return `<h3>${title}</h3>`+[...m].map(([k,[d,t]])=>`<div class="bar"><span>${esc(k)}</span><i><u style="width:${d/t*100}%"></u></i><em>${d}/${t}</em></div>`).join('')}
-function issues(){$('#i-ls').innerHTML=S.iss.map((x,i)=>`<div class="iss"><button data-del="${i}">삭제</button><small>No.${i+1}  ${x.m}/${x.dy}  ${esc(x.ch)}  ${esc(x.u)}</small><b>${esc(x.it)}</b><div>${esc(x.is)}</div>${x.nt?`<small>${esc(x.nt)}</small>`:''}</div>`).reverse().join('')||'<p class="h">아직 기록이 없습니다.</p>'}
+let IF='';
+function issues(){const n=S.iss.filter(x=>!x.rv).length,L=S.iss.map((x,i)=>[x,i]).filter(([x])=>!IF||(IF==='n'?!x.rv:!!x.rv));
+ $('#i-fl').options[0].textContent=`전체 ${S.iss.length}`;$('#i-fl').options[1].textContent=`미해결 ${n}`;$('#i-fl').options[2].textContent=`해결됨 ${S.iss.length-n}`;$('#i-fl').value=IF;
+ $('#i-ls').innerHTML=L.map(([x,i])=>`<div class="iss${x.rv?' rv':''}"><button data-del="${i}">삭제</button><button data-rv="${i}" class="rb">${x.rv?'해결 취소':'✓ 해결'}</button><small>No.${i+1}  ${x.m}/${x.dy}  ${esc(x.ch)}  ${esc(x.u)}</small><b>${esc(x.it)}</b>${x.rv?`<span class="rvt">✓ 해결${x.rv==='✓'?'':' '+esc(x.rv)}</span>`:''}<div>${esc(x.is)}</div>${x.nt?`<small>${esc(x.nt)}</small>`:''}</div>`).reverse().join('')||`<p class="h">${S.iss.length?'조건에 맞는 특이사항이 없어요.':'아직 기록이 없습니다.'}</p>`}
 function tab(t){document.querySelectorAll('#nav button').forEach(b=>b.setAttribute('aria-selected',b.dataset.t===t));
  ['list','stat','iss','sh','set'].forEach(k=>$('#v-'+k).hidden=k!==t);
  if(t==='stat')$('#v-stat').innerHTML='<button class="btn" id="rp-o" type="button">📋 일일보고 만들기</button><button class="btn g" id="gh-o" type="button">☁ 장비 현황 (호기별)</button>'+(ctx.cm.st?bars('단계별',1):'')+bars('작업구분별',3)+bars('Unit별',2);
@@ -221,7 +224,9 @@ $('#i-add').onclick=()=>{const d=($('#i-d').value||today()).split('-'),is=$('#i-
  if(!it&&!is)return toast('항목 또는 ISSUE를 입력하세요');
  S.iss.push({m:+d[1],dy:+d[2],ch:$('#i-ch').value,u:$('#i-u').value,it,is,nt:$('#i-nt').value});save();
  ['#i-ch','#i-it','#i-is','#i-nt'].forEach(s=>$(s).value='');issues();toast('추가했습니다')};
-let dc;$('#i-ls').onclick=e=>{const b=e.target.closest('[data-del]');if(!b)return;
+$('#i-fl').onchange=e=>{IF=e.target.value;issues()};
+let dc;$('#i-ls').onclick=e=>{const v=e.target.closest('[data-rv]');if(v){dc=null;const x=S.iss[+v.dataset.rv];if(!x)return;if(x.rv)delete x.rv;else{const t=today().split('-');x.rv=+t[1]+'/'+(+t[2])}save();issues();toast(x.rv?'해결로 표시했어요':'해결을 취소했어요');return}
+ const b=e.target.closest('[data-del]');if(!b)return;
  if(dc===b.dataset.del){S.iss.splice(+dc,1);save();dc=null;issues()}else{dc=b.dataset.del;b.textContent='한 번 더 누르면 삭제'}};
 $('#me').value=S.me;$('#me').oninput=e=>{S.me=e.target.value;save()};
 let rc;$('#rs').onclick=e=>{if(!O)return;if(rc){S.r=clone(O.r);S.iss=clone(O.iss);T={};AU={gm:{},dy:{},a:{}};resetMerges();save();rc=0;e.target.textContent='이 파일 입력 되돌리기';draw();toast('파일 상태로 되돌렸습니다')}else{rc=1;e.target.textContent='되돌리려면 한 번 더 누르세요'}};
@@ -266,7 +271,7 @@ async function load(file){
  for(let r=HD.hr+1;r<=700;r++){const no=gv('no',r);if(!/^\d+$/.test(no))continue;
   const u=gv('unit',r)||pu;pu=u;D.push([+no,gv('st',r),u,gv('gu',r),gv('it',r),r]);
   S.r[+no]={d:nd(gv('d',r)),g:gv('g',r),note:gv('note',r),w:gv('w',r),w2:gv('w2',r),c:gv('c',r),sp:gv('sp',r)}}
- for(let r=2;r<=400;r++){const v='CDEFGHI'.split('').map(c=>im[c+r]||'');if(v.some(Boolean)){ctx.imax=r;S.iss.push({m:v[0],dy:v[1],ch:v[2],u:v[3],it:v[4],is:v[5],nt:v[6]})}}
+ for(let r=2;r<=400;r++){const v='CDEFGHI'.split('').map(c=>im[c+r]||'');if(v.some(Boolean)){ctx.imax=r;const o={m:v[0],dy:v[1],ch:v[2],u:v[3],it:v[4],is:v[5],nt:v[6]},jv=String(im['J'+r]||'').trim();if(/^해결/.test(jv))o.rv=jv.replace(/^해결\s*/,'')||'✓';S.iss.push(o)}}
  O=clone({r:S.r,iss:S.iss});GB=clone(O);GH.sy.clear();LS=JSON.stringify([O.r,O.iss,{}]);
  T={};SH=[];CUR=0;OD=new Set();AU={gm:{},dy:{},a:{}};const xf=styles(await xml(z,'xl/styles.xml'));
  for(const s of b.sh)if(s.p!==main.p&&s.n!=='특이사항'&&s.n!=='Data'&&!s.hid&&!/^세부 정보/.test(s.n))SH.push(await model(z,b,xf,s));
@@ -352,6 +357,10 @@ async function saveX(){
  if(ctx.ip&&JSON.stringify(S.iss)!==JSON.stringify(O.iss)){
   const id=await xml(z,ctx.ip),KS=['m','dy','ch','u','it','is','nt'];
   for(let i=0;i<Math.max(S.iss.length,ctx.imax-1);i++)KS.forEach((k,j)=>{const v=S.iss[i]?String(S.iss[i][k]==null?'':S.iss[i][k]):'';setCell(id,'CDEFGHI'[j]+(i+2),v,j<2&&/^\d+$/.test(v))});
+  const cs=(ref)=>[...id.getElementsByTagName('c')].find(c=>c.getAttribute('r')===ref),rvT=x=>x&&x.rv?'해결'+(x.rv==='✓'?'':' '+x.rv):'';
+  const anyRv=S.iss.some(x=>x.rv)||O.iss.some(x=>x.rv);
+  if(anyRv){for(let i=0;i<Math.max(S.iss.length,ctx.imax-1);i++){const v=rvT(S.iss[i]);if(v||rvT(O.iss[i])){setCell(id,'J'+(i+2),v,false);const a=cs('I'+(i+2)),b=cs('J'+(i+2));if(a&&b&&a.getAttribute('s'))b.setAttribute('s',a.getAttribute('s'))}}
+   if(!cs('J1')||!(cs('J1').textContent||'').trim()){setCell(id,'J1','해결',false);const a=cs('I1'),b=cs('J1');if(a&&b&&a.getAttribute('s'))b.setAttribute('s',a.getAttribute('s'))}}
   z.file(ctx.ip,ser(id));n++}
  for(const m of SH){const E=T[m.n]||{};if(!Object.keys(E).length&&!mgChanged(m))continue;const sd=await xml(z,m.p);
   const FM=m.G&&AU.fmt,idd=s=>s;let dcol=null;
@@ -806,7 +815,7 @@ let rb;$('#gr').onclick=e=>{if(!rb){rb=1;e.target.textContent='한 번 더 누�
 window.addEventListener('beforeunload',e=>{try{if(ctx&&dirty()){e.preventDefault();e.returnValue=''}}catch(x){}});
 /* ===== 공유 저장 (GitHub 저장소에 호기별 JSON) ===== */
 const GH_URL='https://script.google.com/macros/s/AKfycbzI-bynIm5A0xVAXqspybzntg5H8YvSmMoD638ogrSkZ4CtzarFQEk7pMEzzYoBg5Q/exec';
-const GH={q:'',st:'',c:{url:GH_URL,key:'',repo:'',br:'',dir:'data',tok:'',auto:true},D:{},sy:new Set(),view:'',tab:'r',fd:'',fu:'',msg:'',busy:0};
+const GH={q:'',st:'',sf:'n',c:{url:GH_URL,key:'',repo:'',br:'',dir:'data',tok:'',auto:true},D:{},sy:new Set(),view:'',tab:'r',fd:'',fu:'',msg:'',busy:0};
 let GB={r:{},iss:[]};
 try{Object.assign(GH.c,JSON.parse(localStorage.getItem('sbr-gh')||'{}'))}catch(e){}
 if(!String(GH.c.url||'').trim())GH.c.url=GH_URL;
@@ -857,7 +866,8 @@ function ghMerge(d,now){
   if(gchg(n)){if(fl){d.r[n]={...pk(x),...meta};nc++}else if(d.r[n]){delete d.r[n];nc++}}
   else if(fl&&!d.r[n]&&!syn){d.r[n]={...pk(x),...meta};nc++}}
  const rk=new Set(d.iss.map(ik)),lk=new Set(S.iss.map(ik)),bk=new Set(GB.iss.map(ik));
- S.iss.forEach(x=>{const k=ik(x);if(!rk.has(k)&&(!bk.has(k)||!syn)){d.iss.push({m:x.m,dy:x.dy,ch:x.ch,u:x.u,it:x.it,is:x.is,nt:x.nt,at:now,by});rk.add(k);ni++}});
+ S.iss.forEach(x=>{const k=ik(x);if(!rk.has(k)&&(!bk.has(k)||!syn)){d.iss.push({m:x.m,dy:x.dy,ch:x.ch,u:x.u,it:x.it,is:x.is,nt:x.nt,...(x.rv?{rv:x.rv}:{}),at:now,by});rk.add(k);ni++}
+  else if(rk.has(k)){const b=GB.iss.find(y=>ik(y)===k),y=d.iss.find(z=>ik(z)===k);if(y&&(x.rv||'')!==((b&&b.rv)||'')&&(x.rv||'')!==(y.rv||'')){if(x.rv)y.rv=x.rv;else delete y.rv;ni++}}});
  GB.iss.forEach(x=>{const k=ik(x);if(!lk.has(k)&&rk.has(k)){d.iss=d.iss.filter(y=>ik(y)!==k);rk.delete(k);ni++}});
  if(nc+ni||mt){d.unit=ctx.unit;d.kind=rKind();d.file=ctx.name;d.tot=D.length;d.done=Object.values(d.r).filter(x=>x.g==='완료').length;d.at=now;d.by=by}
  return{nc,ni,mt}}
@@ -883,7 +893,8 @@ async function ghPull(){
   else GF.forEach(k=>{if(k!=='g'&&!x[k]&&y[k]){x[k]=y[k];any=true}});
   if(any){nc++;GB.r[n]=clone(x)}}
  const lk=new Set(S.iss.map(ik)),bk=new Set(GB.iss.map(ik));
- (d.iss||[]).forEach(y=>{const k=ik(y);if(!lk.has(k)&&!bk.has(k)){const o={m:y.m,dy:y.dy,ch:y.ch,u:y.u,it:y.it,is:y.is,nt:y.nt};S.iss.push(o);GB.iss.push(clone(o));lk.add(k);ni++}});
+ (d.iss||[]).forEach(y=>{const k=ik(y);if(!lk.has(k)&&!bk.has(k)){const o={m:y.m,dy:y.dy,ch:y.ch,u:y.u,it:y.it,is:y.is,nt:y.nt};if(y.rv)o.rv=y.rv;S.iss.push(o);GB.iss.push(clone(o));lk.add(k);ni++}
+  else if(lk.has(k)){const x=S.iss.find(z=>ik(z)===k),b=GB.iss.find(z=>ik(z)===k);if(x&&(x.rv||'')===((b&&b.rv)||'')&&(y.rv||'')!==(x.rv||'')){if(y.rv){x.rv=y.rv;if(b)b.rv=y.rv}else{delete x.rv;if(b)delete b.rv}ni++}}});
  GH.D[nm]=d;GH.sy.add(nm);if(nc+ni){save();draw();issues()}return{nc,ni}}
 async function ghAfterSave(){
  if(!GH.c.auto||!ghReady())return;
@@ -925,8 +936,10 @@ function ghUnitV(k){const d=GH.D[k];if(!d)return '';
  const dnS=new Set(r.map(x=>x.n)),todo=has?its.filter(a=>!dnS.has(+a[0])).map(a=>({n:+a[0],un:a[1],kd:a[2],i:a[3],st:a[4]})):[];
  if(!GH.st||(GH.st==='n'&&!has))GH.st=has?'n':'y';
  let h=`<button type="button" class="btn g" data-gb="1" style="margin:0 0 8px">‹ 호기 목록</button><div class="ck-sum"><b>${esc(d.unit||k)}</b><span>${d.done||0}/${d.tot||0} 완료${has?' · 미완료 '+todo.length+'건':''} · 마지막 저장 ${esc(ghT(d.at))} ${esc(d.by||'')}</span></div>
- <div class="ck-f"><button type="button" data-gt="r" aria-pressed="${GH.tab==='r'}">체크리스트</button><button type="button" data-gt="i" aria-pressed="${GH.tab==='i'}">특이사항 ${iss.length}</button></div>`;
- if(GH.tab==='i')return h+(iss.slice().reverse().map(x=>`<div class="iss" style="margin-bottom:6px"><small>${esc(x.m)}/${esc(x.dy)}  ${esc(x.ch)}  ${esc(x.u)}${x.by?' · '+esc(x.by):''} ${esc(ghT(x.at))}</small><b>${esc(x.it)}</b><div>${esc(x.is)}</div>${x.nt?`<small>${esc(x.nt)}</small>`:''}</div>`).join('')||'<p class="h">등록된 특이사항이 없어요.</p>');
+ <div class="ck-f"><button type="button" data-gt="r" aria-pressed="${GH.tab==='r'}">체크리스트</button><button type="button" data-gt="i" aria-pressed="${GH.tab==='i'}">특이사항 ${iss.filter(x=>!x.rv).length}${iss.some(x=>x.rv)?' (전체 '+iss.length+')':''}</button></div>`;
+ if(GH.tab==='i'){const op=iss.filter(x=>!x.rv).length,L=iss.filter(x=>!GH.sf||(GH.sf==='n'?!x.rv:!!x.rv));
+  h+=`<div class="q"><select data-gf="sf"><option value="n"${GH.sf==='n'?' selected':''}>미해결 ${op}</option><option value="y"${GH.sf==='y'?' selected':''}>해결됨 ${iss.length-op}</option><option value=""${!GH.sf?' selected':''}>전체 ${iss.length}</option></select></div>`;
+  return h+(L.slice().reverse().map(x=>`<div class="iss${x.rv?' rv':''}" style="margin-bottom:6px"><small>${esc(x.m)}/${esc(x.dy)}  ${esc(x.ch)}  ${esc(x.u)}${x.by?' · '+esc(x.by):''} ${esc(ghT(x.at))}</small><b>${esc(x.it)}</b>${x.rv?`<span class="rvt">✓ 해결${x.rv==='✓'?'':' '+esc(x.rv)}</span>`:''}<div>${esc(x.is)}</div>${x.nt?`<small>${esc(x.nt)}</small>`:''}</div>`).join('')||`<p class="h">${iss.length?'조건에 맞는 특이사항이 없어요.':'등록된 특이사항이 없어요.'}</p>`)}
  const so=`<select data-gf="st">${has?`<option value="n"${GH.st==='n'?' selected':''}>미완료 ${todo.length}</option>`:''}<option value="y"${GH.st==='y'?' selected':''}>완료 ${r.length}</option></select>`;
  if(GH.st==='n'){
   const um=[...new Set(todo.map(x=>x.un).filter(Boolean))];if(GH.fu&&!um.includes(GH.fu))GH.fu='';
@@ -945,7 +958,7 @@ function ghUnitV(k){const d=GH.D[k];if(!d)return '';
 function ghCards(){const q=String(GH.q||'').trim().toLowerCase();
  const ks=Object.keys(GH.D).filter(k=>!q||(String(GH.D[k].unit||k)+' '+k).toLowerCase().includes(q)).sort((a,c)=>{const ra=(GH.D[a].tot||0)>(GH.D[a].done||0)?0:1,rc=(GH.D[c].tot||0)>(GH.D[c].done||0)?0:1;return ra-rc||(GH.D[a].unit||a).localeCompare(GH.D[c].unit||c,'ko',{numeric:true})});
  return ks.map(k=>{const d=GH.D[k],tot=d.tot||0,dn=d.done||0,p=tot?Math.round(dn/tot*100):0;
-  return `<button type="button" class="gh-u" data-gu="${esc(k)}"><b>${esc(d.unit||k)}</b><small>${esc(d.kind||'')} · ${dn}/${tot} (${p}%) · 미완료 ${Math.max(0,tot-dn)}건 · 특이사항 ${(d.iss||[]).length}건</small><i><u style="width:${p}%"></u></i><small>마지막 저장 ${esc(ghT(d.at))} ${esc(d.by||'')}</small></button>`}).join('')||(!ghOk()?'':(q?'<p class="h">검색 결과가 없어요.</p>':'<p class="h">아직 공유된 호기가 없어요. 엑셀을 열고 저장하면 여기에 쌓여요. ↻ 새로고침을 눌러 확인하세요.</p>'))}
+  return `<button type="button" class="gh-u" data-gu="${esc(k)}"><b>${esc(d.unit||k)}</b><small>${esc(d.kind||'')} · ${dn}/${tot} (${p}%) · 미완료 ${Math.max(0,tot-dn)}건 · 특이사항 ${(d.iss||[]).filter(x=>!x.rv).length}건${(d.iss||[]).some(x=>x.rv)?' (해결 '+(d.iss||[]).filter(x=>x.rv).length+')':''}</small><i><u style="width:${p}%"></u></i><small>마지막 저장 ${esc(ghT(d.at))} ${esc(d.by||'')}</small></button>`}).join('')||(!ghOk()?'':(q?'<p class="h">검색 결과가 없어요.</p>':'<p class="h">아직 공유된 호기가 없어요. 엑셀을 열고 저장하면 여기에 쌓여요. ↻ 새로고침을 눌러 확인하세요.</p>'))}
 function ghDraw(){
  const b=$('#gh-b');let h=ghCfg();
  if(!GH.view){
@@ -975,7 +988,7 @@ $('#gh-b').onclick=async e=>{const t=e.target.closest('button');if(!t)return;
  if(t.id==='gh-l'){const u=location.origin+location.pathname+'?gs='+encodeURIComponent(GH.c.url.trim())+(GH.c.key?'&gk='+encodeURIComponent(GH.c.key):'');try{await navigator.clipboard.writeText(u);toast('팀원용 링크를 복사했어요')}catch(er){toast('복사하지 못했어요')}return}
  if(t.id==='gh-ps'){GH.msg='공유 저장 중…';ghDraw();try{const c=await ghPush();GH.msg=c.nc+c.ni?`공유 저장 완료 (체크 ${c.nc}건, 특이사항 ${c.ni}건)`:'공유에 올릴 새 변경이 없어요';await ghLoadAll()}catch(er){GH.msg='공유 저장 실패: '+ghErr(er)}ghDraw();return}
  if(t.id==='gh-pl'){GH.msg='가져오는 중…';ghDraw();try{const c=await ghPull();GH.msg=c.none?'이 호기의 공유 기록이 아직 없어요':(c.nc+c.ni?`가져왔어요 (체크 ${c.nc}건, 특이사항 ${c.ni}건)`:'새로 가져올 내용이 없어요')}catch(er){GH.msg='가져오기 실패: '+ghErr(er)}ghDraw();return}
- if(t.dataset.gu){GH.view=t.dataset.gu;GH.tab='r';GH.fd=GH.fu='';GH.st='';ghDraw();$('#gh').scrollTop=0;return}
+ if(t.dataset.gu){GH.view=t.dataset.gu;GH.tab='r';GH.fd=GH.fu='';GH.st='';GH.sf='n';ghDraw();$('#gh').scrollTop=0;return}
  if(t.dataset.gb){GH.view='';ghDraw();return}
  if(t.dataset.gt){GH.tab=t.dataset.gt;ghDraw();return}};
 ['#gh-o2','#gh-o3','#gh-o4'].forEach(s=>{const b=$(s);if(b)b.onclick=ghOpen});
