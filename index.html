@@ -90,7 +90,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 <header>
  <div class="t"><h1 id="ttl">작업 입력</h1><span id="cnt"></span><button class="sv" id="sv" hidden>엑셀 저장</button></div>
  <div class="pg"><u id="pg" style="width:0"></u></div>
- <nav id="nav" role="tablist" hidden><button data-t="list" aria-selected="true">체크리스트</button><button data-t="stat">현황</button><button data-t="iss">특이사항</button><button data-t="sh">시트</button><button data-t="set">설정</button></nav>
+ <nav id="nav" role="tablist" hidden><button data-t="list" aria-selected="true">체크리스트</button><button data-t="stat">현황</button><button data-t="iss">특이사항</button><button data-t="sh">스펙</button><button data-t="set">설정</button></nav>
 </header>
 <main>
  <section id="v-open" class="open"><h2>호기별 엑셀 파일을 열어주세요</h2><p>같은 양식의 파일을 열면 항목이 그대로 나타나고, 입력한 내용은 그 파일에 반영해 저장할 수 있어요.</p><button class="btn" id="op">엑셀 파일 열기</button><input type="file" id="fi" accept=".xlsx" hidden><div class="gdh" id="gd-a"></div></section>
@@ -132,7 +132,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
   <h3>파일</h3><button class="btn g" id="op2">다른 호기 파일 열기</button>
   <button class="btn g" id="rs">이 파일 입력 되돌리기</button>
   <p class="h">입력한 내용은 앱을 닫으면 사라져요. 작업을 마치거나 앱을 닫기 전에 꼭 엑셀로 저장하세요.</p>
-  <p class="h">앱 버전 v42</p>
+  <p class="h">앱 버전 v43</p>
  </section>
 </main>
 <div id="chk" hidden><div class="ck-top"><b>점검</b><button type="button" id="chk-x" aria-label="닫기">✕</button></div><div id="chk-b"></div></div>
@@ -145,11 +145,11 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 <template id="gd"><details class="guide"><summary>사용 방법</summary><ol>
 <li><b>파일 열기</b> — 호기별 엑셀(FX·3D 모두 가능)을 열어요. 원본 파일은 그대로 두고, 저장하면 새 파일이 만들어져요.</li>
 <li><b>체크리스트</b> — 작업을 마치면 동그라미를 눌러 완료 체크해요. 완료일·작업자가 채워지고 공수 시트에도 자동으로 들어가요. 처음에는 미완료 항목만 보이고, 위 필터로 전체·완료를 볼 수 있어요. 항목을 누르면 작업자·비고·특이사항을 적어요.</li>
-<li><b>시트</b> — 측정값(Spec Data)을 칸마다 입력해요. Spec 범위를 벗어나면 바로 빨갛게 알려주고(조정 전은 주황 "조정 필요"), <b>✔ 점검</b> 버튼으로 빠진 칸과 벗어난 칸을 한눈에 볼 수 있어요.</li>
+<li><b>스펙</b> — 측정값(Spec Data)을 칸마다 입력해요. Spec 범위를 벗어나면 바로 빨갛게 알려주고(조정 전은 주황 "조정 필요"), <b>✔ 점검</b> 버튼으로 빠진 칸과 벗어난 칸을 한눈에 볼 수 있어요.</li>
 <li><b>특이사항</b> — 작업 중 생긴 ISSUE를 기록해요.</li>
 <li><b>현황</b> — 진행률을 보고, <b>📋 일일보고 만들기</b>로 보고 글을 만들어 복사·공유해요.</li>
 <li><b>저장</b> — 위쪽 "엑셀 저장"을 누르면 <b>원본이름_입력.xlsx</b>로 저장돼요. 입력한 내용은 앱을 닫으면 사라지니 꼭 저장하세요.</li>
-</ol><div class="gtip">팁: 설정 탭에 내 이름을 적어두면 체크할 때 작업자가 자동으로 들어가요. 사진 영역은 엑셀에서 직접 붙여넣어야 해요.</div></details><details class="guide log"><summary>업데이트 내역</summary><div class="lg"><b>v42</b><small>11/25</small><ul><li>체크리스트: 완료일 기준으로 보는 '날짜' 필터 추가 (완료한 날짜가 목록으로 나오고 날짜별 완료 건수 표시, 날짜를 고르면 그날 완료한 항목만 표시)</li></ul></div><div class="lg"><b>v41</b><small>11/25</small><ul><li>체크리스트: 방금 완료 체크한 항목이 다른 탭에 다녀와도 '미완료' 목록에서 사라지지 않음 (필터를 바꾸거나 파일을 다시 열 때 정리됨)</li></ul></div><div class="lg"><b>v40</b><small>11/25</small><ul><li>일일보고: 대문자로 그대로 둘 약어 기본 목록 확대 (DIW, UPW, DI, CCR, FSC, BSC, SAC, EBR, EBRM, HRVA, LFC, FDM, CCD, OHT, EMO, DC, RPM, FFU, OK, SABRE, CM, EA, UI, LAM 추가)</li></ul></div><div class="lg"><b>v39</b><small>11/25</small><ul><li>일일보고: 대문자로 그대로 둘 단어에 SRD, DUET, APT, AWC 추가 (FE, BE, PEM과 함께 기본 적용)</li></ul></div><div class="lg"><b>v38</b><small>11/25</small><ul><li>일일보고: 금일 작업의 대문자 영어를 첫 글자만 대문자로 표기 (ALIGNER VACCUM → Aligner Vaccum), FE·BE·PEM은 그대로 두고 보고서 설정에서 예외 단어 추가·삭제 가능</li></ul></div><div class="lg"><b>v37</b><small>11/25</small><ul><li>업데이트 내역 추가</li></ul></div><div class="lg"><b>v36</b><small>11/25</small><ul><li>첫 화면과 설정 탭에 사용 방법 추가</li></ul></div><div class="lg"><b>v35</b><small>11/25</small><ul><li>체크리스트: 파일을 열면 미완료 항목만 먼저 표시 (방금 체크한 항목은 바로 사라지지 않고, 다른 탭에 갔다 오면 정리)</li></ul></div><div class="lg"><b>v34</b><small>11/25</small><ul><li>일일보고: 마지막 문구 제거 (필요하면 보고서 설정에서 직접 입력)</li></ul></div><div class="lg"><b>v33</b><small>11/25</small><ul><li>엑셀 저장: 압축파일(zip)로 인식되던 문제 수정, 엑셀 형식으로 저장</li></ul></div><div class="lg"><b>v32</b><small>11/25</small><ul><li>일일보고: 한 유닛만 한 작업도 "Cell #1"처럼 표기</li><li>일일보고: 항목 이름에 Cell1 등이 들어 있어도 #번호로 정리하고 같은 작업은 한 줄로 합침</li></ul></div><div class="lg"><b>v31</b><small>11/25</small><ul><li>일일보고: 여러 유닛 작업을 "Cell #1, #2, #3"으로 표기</li></ul></div><div class="lg"><b>v30</b><small>11/25</small><ul><li>일일보고 자동 작성 (현황 탭): 작업인원·작업일수·진행률·금일 작업·특이사항을 양식대로 만들고 복사·공유</li><li>진행률 줄 이름·순서·포함 여부와 호기 번호, 단계(T1-1) 설정</li></ul></div><div class="lg"><b>v29</b><small>11/25</small><ul><li>Spec 자동 판정: 값을 입력하면 범위 안(초록) / 조정 필요(주황) / Spec 벗어남(빨강)을 바로 표시</li><li>점검 화면: 미입력 칸과 Spec 벗어난 칸을 구역별로 모아 보고, 누르면 해당 칸으로 이동</li></ul></div><div class="lg"><b>v28</b><small>11/24</small><ul><li>3D 시트 "6. 각 Cell's Chamber Level Check Data" 화면 정리, DUET1 left → DUET1 right 순서로 표시</li></ul></div><div class="lg"><b>v27</b><small>11/24</small><ul><li>9·10·13·14·15번 구역(PEM Level, PEM Spin RPM, FSC Nozzle, Wafer Rinse & CCR, CUP Open Speed) 화면 정리</li><li>엑셀의 "/" 표시 칸과 표 바깥 빈 칸은 입력칸에서 제외, 같은 단위·Spec은 한 번만 표시</li></ul></div><div class="lg"><b>v26</b><small>11/24</small><ul><li>8번 Cell Digi Pas 구역 정리: CELL별로 묶고 조정 전/후를 색으로 구분</li></ul></div><div class="lg"><b>v25 이전</b><ul><li>시트 입력을 칸마다 입력하는 카드 화면으로 개선, 조정 전(주황)/조정 후(초록) 구분</li><li>3D 장비 엑셀 인식 추가</li><li>공수 자동 입력: 고정 서식(Date yyyy-mm-dd, 작업구분 굵게, 행 높이 자동)</li><li>아이폰(웹앱) 지원, 엑셀 저장 시 서식과 다른 시트 유지</li></ul></div></details></template>
+</ol><div class="gtip">팁: 설정 탭에 내 이름을 적어두면 체크할 때 작업자가 자동으로 들어가요. 사진 영역은 엑셀에서 직접 붙여넣어야 해요.</div></details><details class="guide log"><summary>업데이트 내역</summary><div class="lg"><b>v43</b><small>11/25</small><ul><li>'시트' 탭 이름을 '스펙'으로 변경</li><li>스펙 화면: 시트·구역이 하나뿐이면 중복 선택칸(Sheet1) 숨김, 기본 이름 Sheet1은 '스펙'으로 표시</li></ul></div><div class="lg"><b>v42</b><small>11/25</small><ul><li>체크리스트: 완료일 기준으로 보는 '날짜' 필터 추가 (완료한 날짜가 목록으로 나오고 날짜별 완료 건수 표시, 날짜를 고르면 그날 완료한 항목만 표시)</li></ul></div><div class="lg"><b>v41</b><small>11/25</small><ul><li>체크리스트: 방금 완료 체크한 항목이 다른 탭에 다녀와도 '미완료' 목록에서 사라지지 않음 (필터를 바꾸거나 파일을 다시 열 때 정리됨)</li></ul></div><div class="lg"><b>v40</b><small>11/25</small><ul><li>일일보고: 대문자로 그대로 둘 약어 기본 목록 확대 (DIW, UPW, DI, CCR, FSC, BSC, SAC, EBR, EBRM, HRVA, LFC, FDM, CCD, OHT, EMO, DC, RPM, FFU, OK, SABRE, CM, EA, UI, LAM 추가)</li></ul></div><div class="lg"><b>v39</b><small>11/25</small><ul><li>일일보고: 대문자로 그대로 둘 단어에 SRD, DUET, APT, AWC 추가 (FE, BE, PEM과 함께 기본 적용)</li></ul></div><div class="lg"><b>v38</b><small>11/25</small><ul><li>일일보고: 금일 작업의 대문자 영어를 첫 글자만 대문자로 표기 (ALIGNER VACCUM → Aligner Vaccum), FE·BE·PEM은 그대로 두고 보고서 설정에서 예외 단어 추가·삭제 가능</li></ul></div><div class="lg"><b>v37</b><small>11/25</small><ul><li>업데이트 내역 추가</li></ul></div><div class="lg"><b>v36</b><small>11/25</small><ul><li>첫 화면과 설정 탭에 사용 방법 추가</li></ul></div><div class="lg"><b>v35</b><small>11/25</small><ul><li>체크리스트: 파일을 열면 미완료 항목만 먼저 표시 (방금 체크한 항목은 바로 사라지지 않고, 다른 탭에 갔다 오면 정리)</li></ul></div><div class="lg"><b>v34</b><small>11/25</small><ul><li>일일보고: 마지막 문구 제거 (필요하면 보고서 설정에서 직접 입력)</li></ul></div><div class="lg"><b>v33</b><small>11/25</small><ul><li>엑셀 저장: 압축파일(zip)로 인식되던 문제 수정, 엑셀 형식으로 저장</li></ul></div><div class="lg"><b>v32</b><small>11/25</small><ul><li>일일보고: 한 유닛만 한 작업도 "Cell #1"처럼 표기</li><li>일일보고: 항목 이름에 Cell1 등이 들어 있어도 #번호로 정리하고 같은 작업은 한 줄로 합침</li></ul></div><div class="lg"><b>v31</b><small>11/25</small><ul><li>일일보고: 여러 유닛 작업을 "Cell #1, #2, #3"으로 표기</li></ul></div><div class="lg"><b>v30</b><small>11/25</small><ul><li>일일보고 자동 작성 (현황 탭): 작업인원·작업일수·진행률·금일 작업·특이사항을 양식대로 만들고 복사·공유</li><li>진행률 줄 이름·순서·포함 여부와 호기 번호, 단계(T1-1) 설정</li></ul></div><div class="lg"><b>v29</b><small>11/25</small><ul><li>Spec 자동 판정: 값을 입력하면 범위 안(초록) / 조정 필요(주황) / Spec 벗어남(빨강)을 바로 표시</li><li>점검 화면: 미입력 칸과 Spec 벗어난 칸을 구역별로 모아 보고, 누르면 해당 칸으로 이동</li></ul></div><div class="lg"><b>v28</b><small>11/24</small><ul><li>3D 시트 "6. 각 Cell's Chamber Level Check Data" 화면 정리, DUET1 left → DUET1 right 순서로 표시</li></ul></div><div class="lg"><b>v27</b><small>11/24</small><ul><li>9·10·13·14·15번 구역(PEM Level, PEM Spin RPM, FSC Nozzle, Wafer Rinse & CCR, CUP Open Speed) 화면 정리</li><li>엑셀의 "/" 표시 칸과 표 바깥 빈 칸은 입력칸에서 제외, 같은 단위·Spec은 한 번만 표시</li></ul></div><div class="lg"><b>v26</b><small>11/24</small><ul><li>8번 Cell Digi Pas 구역 정리: CELL별로 묶고 조정 전/후를 색으로 구분</li></ul></div><div class="lg"><b>v25 이전</b><ul><li>시트 입력을 칸마다 입력하는 카드 화면으로 개선, 조정 전(주황)/조정 후(초록) 구분</li><li>3D 장비 엑셀 인식 추가</li><li>공수 자동 입력: 고정 서식(Date yyyy-mm-dd, 작업구분 굵게, 행 높이 자동)</li><li>아이폰(웹앱) 지원, 엑셀 저장 시 서식과 다른 시트 유지</li></ul></div></details></template>
 <div id="toast"></div>
 <script src="jszip.min.js"></script>
 <script>
@@ -265,7 +265,7 @@ try{syncG()}catch(e){}
  units=uniq(2);f.u=f.s=f.q=f.d='';f.t='n';RC.clear();$('#ft').value='n';$('#q').value='';
  $('#fs').innerHTML='<option value="">전체 단계</option>'+uniq(1).map(s=>`<option>${esc(s)}</option>`).join('');
  $('#i-u').innerHTML=units.map(u=>`<option>${esc(u)}</option>`).join('');
- $('#sh-s').innerHTML=SH.map((m,i)=>`<option value="${i}">${esc(m.n)}</option>`).join('');$('#sh-a').checked=AM=false;secOpts();
+ $('#sh-s').innerHTML=SH.map((m,i)=>`<option value="${i}">${esc(shn(m.n))}</option>`).join('');$('#sh-a').checked=AM=false;secOpts();
  $('#nav [data-t=iss]').hidden=!ctx.ip;$('#fs').hidden=!ctx.cm.st;$('#ttl').textContent=ctx.unit;$('#v-open').hidden=true;$('#nav').hidden=false;$('#sv').hidden=false;open.clear();tab('list');draw();updSv();
  }catch(e){toast('파일을 읽지 못했습니다')}}
 function setCell(d,ref,val,num,dfn){
@@ -497,10 +497,10 @@ function chkDraw(){const a=chkScan(),M=a.reduce((s,x)=>s+x.miss.length,0),B=a.re
   `<div class="ck-f">${[['all','전체'],['miss','미입력만'],['bad','벗어남만']].map(([k,l])=>`<button type="button" data-f="${k}" aria-pressed="${CKF===k}">${l}</button>`).join('')}</div>`;
  let h='',last='';
  a.forEach(x=>{const ok=!x.miss.length&&!x.bad.length;if(CKF==='miss'&&!x.miss.length)return;if(CKF==='bad'&&!x.bad.length)return;
-  if(x.sheet!==last){h+=`<h3 class="ck-h">${esc(x.sheet)}</h3>`;last=x.sheet}
+  if(x.sheet!==last){if(new Set(a.map(y=>y.sheet)).size>1)h+=`<h3 class="ck-h">${esc(shn(x.sheet))}</h3>`;last=x.sheet}
   const chips=ok?'<span class="ck-c ok">✓ 완료</span>':(x.miss.length?`<span class="ck-c">미입력 ${x.miss.length}</span>`:'')+(x.bad.length?`<span class="ck-c bad">벗어남 ${x.bad.length}</span>`:'');
   const items=(CKF==='bad'?[]:x.miss.map(i=>({...i,k:'m'}))).concat(CKF==='miss'?[]:x.bad.map(i=>({...i,k:'b'})));
-  h+=`<details class="ck-s"${!ok&&(CKF!=='all'||a.length<=3)?' open':''}><summary><span class="ck-t">${esc(x.title)}</span>${chips}</summary>`+
+  h+=`<details class="ck-s"${!ok&&(CKF!=='all'||a.length<=3)?' open':''}><summary><span class="ck-t">${esc(shn(x.title))}</span>${chips}</summary>`+
    items.map(i=>`<button type="button" class="ck-i ${i.k}" data-mi="${x.mi}" data-si="${x.si}" data-ref="${i.ref}">${i.k==='b'?`<b>${esc(i.lab)}</b><span>${esc(i.v)} → 범위 ${esc(i.rt)}</span>`:`<b>${esc(i.lab)}</b><span>비어 있음</span>`}</button>`).join('')+
    `<button type="button" class="ck-i go" data-mi="${x.mi}" data-si="${x.si}" data-ref="">이 구역 열기 ›</button></details>`});
  if(!h)h='<p class="h">표시할 항목이 없습니다. 모두 입력됐고 Spec도 벗어난 칸이 없어요 👍</p>';
@@ -575,10 +575,10 @@ function fDraw(m,si,raw){
  const body=g=>{const rts=[...new Set(g.f.map(f=>f.sub))];
   if(rts.filter(Boolean).length<2&&!(rts.length===1&&cls(rts[0])!=='oth'))return `<div class="fg">${g.f.map(f=>fld(f,f.main)).join('')}</div>`;
   return rts.map(rt=>{const a=g.f.filter(f=>f.sub===rt);if(!rt&&rts.length>1)return `<div class="fg">${a.map(f=>fld(f,f.m0||f.main)).join('')}</div>`;return `<div class="fs ${cls(rt)}"><div class="fsh"><b>${esc(rt||'기타')}</b><small>${a.filter(dn).length}/${a.length}</small></div><div class="fg">${a.map(f=>fld(f,f.m0&&f.m0!==g.t.split(' › ').pop()?f.m0:'')).join('')}</div></div>`}).join('')};
- return `<div class="fsum">${fl.filter(dn).length} / ${fl.length} 칸 입력됨</div>`+gs.map(g=>{const wm=g.f.filter(f=>f.meta);hm=wm.length&&wm.every(f=>f.meta===wm[0].meta)?wm[0].meta:'';const nt=g.f[0].note&&g.f.every(f=>f.note===g.f[0].note)?g.f[0].note:'';return `<div class="dc ${cls((g.t||'').split(' › ').pop())!=='oth'?'g'+cls((g.t||'').split(' › ').pop()):''}"><div class="fgh"><b>${esc(g.t||sc.t)}</b><small>${g.f.filter(dn).length}/${g.f.length}</small></div>${nt?`<div class="gm">${esc(nt)}</div>`:''}${hm?`<div class="gm">${esc(hm)}</div>`:''}${body(g)}</div>`}).join('')}
+ return `<div class="fsum">${fl.filter(dn).length} / ${fl.length} 칸 입력됨</div>`+gs.map(g=>{const wm=g.f.filter(f=>f.meta);hm=wm.length&&wm.every(f=>f.meta===wm[0].meta)?wm[0].meta:'';const nt=g.f[0].note&&g.f.every(f=>f.note===g.f[0].note)?g.f[0].note:'';return `<div class="dc ${cls((g.t||'').split(' › ').pop())!=='oth'?'g'+cls((g.t||'').split(' › ').pop()):''}"><div class="fgh"><b>${esc(shn(g.t||sc.t))}</b><small>${g.f.filter(dn).length}/${g.f.length}</small></div>${nt?`<div class="gm">${esc(nt)}</div>`:''}${hm?`<div class="gm">${esc(hm)}</div>`:''}${body(g)}</div>`}).join('')}
 function shDraw(){
  const m=SH[CUR],w=$('#sh-t');if(!m){w.innerHTML='<p class="h">추가 시트가 없습니다.</p>';return}
- if(m.G===undefined)m.G=glay(m)||false;const L=m.G,iG=!!L||/공수/.test(m.n);$('#sh-gq').hidden=false;const card=!!L&&!$('#sh-g').checked,fc=!L&&!iG&&!$('#sh-g').checked;$('.sn').hidden=card;$('#sh-opt').hidden=card;
+ if(m.G===undefined)m.G=glay(m)||false;const L=m.G,iG=!!L||/공수/.test(m.n);$('#sh-gq').hidden=false;const card=!!L&&!$('#sh-g').checked,fc=!L&&!iG&&!$('#sh-g').checked;$('.sn').hidden=card||m.S.length<=1;$('#sh-s').parentNode.hidden=SH.length<=1;$('#sh-opt').hidden=card;
  if(card){w.innerHTML=gDraw(m,L);return}
  if(fc){w.innerHTML=fDraw(m);fJudge();return}
  const note=iG&&!L?'<p class="h">이 시트는 카드 화면에 필요한 머리글(Day, Date, 작업내용, 공수)을 찾지 못해 표로 보여드려요.</p>':'';
@@ -604,7 +604,8 @@ const go=d=>{const m=SH[CUR];if(!m)return;SC=Math.max(0,Math.min(m.S.length-1,SC
 $('#sh-p').onclick=()=>go(-1);$('#sh-n').onclick=()=>go(1);
 $('#sh-k').onchange=e=>{NK=e.target.checked;shDraw()};
 $('#sh-t').onkeydown=e=>{if(e.key!=='Enter'||!e.target.dataset.r)return;e.preventDefault();const a=[...document.querySelectorAll('#sh-t input')],i=a.indexOf(e.target);(a[i+1]||e.target).focus()};
-function secOpts(){const m=SH[CUR];$('#sh-c').innerHTML=m?m.S.map((s,i)=>`<option value="${i}">${esc(s.t)}</option>`).join(''):'';SC=0}
+const shn=s=>/^sheet\d*$/i.test(String(s).trim())?'스펙':s;
+function secOpts(){const m=SH[CUR];$('#sh-c').innerHTML=m?m.S.map((s,i)=>`<option value="${i}">${esc(shn(s.t))}</option>`).join(''):'';SC=0}
 function secs(m){const c0=m.C[0],hs=[];
  for(let r=m.R[0];r<=m.R[1];r++){const x=(m.c[colL(c0)+r]||{}).d;if(/^\d+\.\s*\S/.test(x||''))hs.push([r,x.replace(/\s+/g,' ')])}
  if(!hs.length)return [{t:m.n,a:m.R[0],b:m.R[1],c1:m.C[0],c2:m.C[1]}];
