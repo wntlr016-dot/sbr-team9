@@ -129,7 +129,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
   <h3>파일</h3><button class="btn g" id="op2">다른 호기 파일 열기</button>
   <button class="btn g" id="rs">이 파일 입력 되돌리기</button>
   <p class="h">입력한 내용은 앱을 닫으면 사라져요. 작업을 마치거나 앱을 닫기 전에 꼭 엑셀로 저장하세요.</p>
-  <p class="h">앱 버전 v33</p>
+  <p class="h">앱 버전 v34</p>
  </section>
 </main>
 <div id="chk" hidden><div class="ck-top"><b>점검</b><button type="button" id="chk-x" aria-label="닫기">✕</button></div><div id="chk-b"></div></div>
@@ -392,8 +392,9 @@ function fJudge(){document.querySelectorAll('#sh-t .fd[data-j]').forEach(d=>{con
  const k=!st?'':st==='ok'?'ok':pre?'adj':'bad';d.dataset.st=k;b.textContent=!k?'':k==='ok'?'✓ 범위 안 ('+d.dataset.rt+')':(pre?'조정 필요 · ':'✗ Spec 벗어남 · ')+d.dataset.rt})}
 /* ===== 일일보고 ===== */
 const RPK='sbr-rep';
-let REP={pre:{},id:{},ph:'T1-1',end:'이상입니다. 식사 후 사무실 복귀하겠습니다.',cfg:{}},RPD='';
+let REP={pre:{},id:{},ph:'T1-1',end:'',cfg:{}},RPD='';
 try{const x=JSON.parse(localStorage.getItem(RPK)||'null');if(x)REP=Object.assign(REP,x)}catch(e){}
+if(/^이상입니다\.?\s*(식사 후\s*)?사무실 복귀하겠습니다\.?$/.test(String(REP.end||'').trim()))REP.end='';
 const repSave=()=>{try{localStorage.setItem(RPK,JSON.stringify(REP))}catch(e){}};
 const rKind=()=>SH.some(m=>/PPT/i.test(m.n))?'3D':'FX';
 const R_AL=[[/process\s*kit/i,'Process kit조립'],[/robot\s*level/i,'Robot Leveling'],[/(ch|chamber)\s*level/i,'Chamber Leveling'],[/sensor|switch/i,'Switch setting'],[/bath/i,'Bath Setting'],[/flow/i,'UPW Flow Setting'],[/^\s*test\s*$/i,'Test'],[/parts/i,'Parts 조립']];
@@ -427,10 +428,10 @@ function repText(date){
   let s=[p,it].filter(Boolean).join(' ');if(ure)s=s.replace(ure,m=>fu(m));return '- '+s+(/done\s*$/i.test(it)?'':' Done')});
  const mm=+date.slice(5,7),dd=+date.slice(8);
  const sp=[...new Set([...S.iss.filter(x=>+x.m===mm&&+x.dy===dd).map(x=>[...new Set([x.it,x.is].filter(Boolean))].join(' ').trim()),...done.map(r=>S.r[r[0]].sp)].filter(Boolean))];
- return [`${pre} ${un}${idt} ${REP.ph} 작업진행 현황`,'',`작업인원 : ${names.join(', ')}`,`작업일수: ${day}일차`,'',...repProg().map((s,i)=>`${i+1}. ${s}`),'','금일 작업',...(works.length?works:['- (완료 처리한 항목 없음)']),'','특이사항',...(sp.length?sp.map(s=>'- '+s):['- 특이사항 없음']),'',REP.end].join('\n')}
+ return [`${pre} ${un}${idt} ${REP.ph} 작업진행 현황`,'',`작업인원 : ${names.join(', ')}`,`작업일수: ${day}일차`,'',...repProg().map((s,i)=>`${i+1}. ${s}`),'','금일 작업',...(works.length?works:['- (완료 처리한 항목 없음)']),'','특이사항',...(sp.length?sp.map(s=>'- '+s):['- 특이사항 없음']),...(REP.end&&REP.end.trim()?['',REP.end]:[])].join('\n')}
 function repCfg(){const kind=rKind(),L=repLines(),un=ctx&&ctx.unit;
  const inp=(k,l,v,ph)=>`<label class="rl-f">${l}<input data-rk="${k}" value="${esc(v)}" placeholder="${esc(ph||'')}"></label>`;
- $('#rp-cb').innerHTML=inp('pre','제목 앞부분 (장비 종류까지)',REP.pre[kind]||('M15X LAM SBR '+kind))+inp('id','이 호기의 번호 (예: #273884)',REP.id[un]||'')+inp('ph','단계 (예: T1-1)',REP.ph)+inp('end','마지막 문구',REP.end)+
+ $('#rp-cb').innerHTML=inp('pre','제목 앞부분 (장비 종류까지)',REP.pre[kind]||('M15X LAM SBR '+kind))+inp('id','이 호기의 번호 (예: #273884)',REP.id[un]||'')+inp('ph','단계 (예: T1-1)',REP.ph)+inp('end','마지막 문구 (비우면 안 나와요)',REP.end)+
   `<h4>진행률 줄 (이름이 같으면 한 줄로 합쳐 계산)</h4>`+L.map((l,i)=>{const rows=lrows(l),d=rows.filter(r=>isDone(r[0])).length;
    return `<div class="rl" data-i="${i}"><input type="checkbox" data-rl="inc"${l.inc?' checked':''} aria-label="포함"><input data-rl="label" value="${esc(l.label)}"><button type="button" data-mv="-1" aria-label="위로">↑</button><button type="button" data-mv="1" aria-label="아래로">↓</button>
    <small>${l.k[0]==='g'?'작업구분 '+esc(l.k.slice(2)):'항목에 <input data-rl="kw" value="'+esc(l.kw||'')+'" placeholder="포함된 글자"> 가 들어간 것'} · ${d}/${rows.length}${l.k[0]==='c'?' <button type="button" data-del="1">삭제</button>':''}</small></div>`}).join('')+
