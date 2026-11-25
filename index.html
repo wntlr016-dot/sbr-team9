@@ -63,7 +63,9 @@ p.h{color:var(--mute);font-size:13px;margin:4px 0}
 dialog{border:1px solid var(--ln);border-radius:12px;background:var(--sf);color:var(--ink);width:min(92vw,560px)}
 dialog textarea{height:200px}
 button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--ok);outline-offset:1px}
-.open{text-align:center;padding:48px 8px}.open h2{font-size:17px;margin:0 0 8px}.open p{color:var(--mute);margin:0 0 16px}.sv{padding:5px 10px;border:0;border-radius:6px;background:var(--ink);color:var(--sf);font:inherit;font-size:13px;font-weight:600;cursor:pointer}
+.open{text-align:center;padding:48px 8px}
+.guide{text-align:left;margin:26px auto 0;max-width:560px;background:var(--sf);border:1px solid var(--ln);border-radius:12px;padding:2px 14px 12px;color:var(--ink)}.guide summary{font-weight:700;font-size:15px;padding:12px 0;cursor:pointer}.guide ol,.guide ul{margin:0;padding-left:20px}.guide ul{list-style:disc}.log{margin-top:10px}.log .lg{margin:0 0 12px}.log .lg b{font-size:14px}.log .lg small{color:var(--mute);margin-left:6px;font-size:12px}.log .lg ul{margin-top:4px}.log .lg li{margin-bottom:4px;font-size:13px}.guide li{font-size:13.5px;line-height:1.55;margin:0 0 8px;color:var(--ink)}.guide li b{font-weight:700}.gtip{font-size:12.5px;color:var(--mute);margin-top:4px;line-height:1.5}
+#v-set .guide{margin-top:0}#v-set .log{margin-top:10px;margin-bottom:12px}.open h2{font-size:17px;margin:0 0 8px}.open p{color:var(--mute);margin:0 0 16px}.sv{padding:5px 10px;border:0;border-radius:6px;background:var(--ink);color:var(--sf);font:inherit;font-size:13px;font-weight:600;cursor:pointer}
 .sq{display:flex;gap:10px;align-items:center;margin-bottom:8px}.sq select{flex:1}.sq label{display:flex;gap:6px;align-items:center;font-size:13px;white-space:nowrap}input[type=checkbox]{width:auto}.gw{overflow-x:auto;border:1px solid var(--ln);border-radius:8px;background:var(--sf)}.gt{border-collapse:collapse;font-size:12px;table-layout:fixed}.gt td{padding:2px 4px;vertical-align:middle;white-space:pre-line;word-break:keep-all}.gt td.b{border:1px solid var(--ln)}.gt td.lb.b{background:var(--bg)}.gt td.in{background:var(--okbg);padding:0}.gt td.in input{border:0;border-radius:0;background:transparent;padding:9px 6px;font-size:16px}.gt td.im{background:var(--bg);color:var(--mute);text-align:center}nav{position:fixed;left:0;right:0;bottom:0;z-index:6;background:var(--sf);border-top:1px solid var(--ln);padding-bottom:env(safe-area-inset-bottom,0px)}nav button{font-size:14px;border-bottom:0;border-top:3px solid transparent;padding:12px 0 10px}input,select,textarea{font-size:16px}.gh{font-size:12px;font-weight:700;color:var(--mute);padding:10px 2px 0}.sn{display:flex;gap:6px;margin-bottom:8px}.sn select{flex:1}.sn button{flex:none;width:48px;border:1px solid var(--ln);background:var(--sf);color:var(--ink);border-radius:8px;font-size:20px;cursor:pointer}.gt td.fc{position:sticky;left:0;z-index:1;background:var(--sf)}.gt td.fc.b{background:var(--bg)}.sv{padding:7px 11px}.dc{background:var(--sf);border:1px solid var(--ln);border-radius:10px;margin-bottom:8px;overflow:hidden}.dh{display:flex;width:100%;justify-content:space-between;align-items:center;gap:8px;background:none;border:0;padding:14px 12px;font:inherit;color:var(--ink);text-align:left;cursor:pointer}.dh small,.en label,.db>label{color:var(--mute);font-size:12px}.db{padding:0 12px 12px;display:grid;gap:10px}.db>label,.en label{display:grid;gap:3px}.en{border-top:1px solid var(--ln);padding-top:10px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}.en .w{grid-column:1/-1}.et{font-size:13px}.en3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:8px}summary{color:var(--mute);font-size:13px;cursor:pointer;padding:4px 0}.dt{display:flex;gap:6px}.dt input{flex:1}.dt button{flex:none;padding:0 14px;border:1px solid var(--ln);background:var(--sf);color:var(--ink);border-radius:8px;font:inherit;cursor:pointer}.sm{display:flex;gap:8px;margin-bottom:10px}.sm div{flex:1;background:var(--sf);border:1px solid var(--ln);border-radius:10px;padding:8px 10px;font-size:12px;color:var(--mute)}.sm b{display:block;font-size:17px;color:var(--ink)}input[data-au],textarea[data-au]{background:var(--okbg)}.sj{font-size:12px;font-weight:600;line-height:1.3}.sj:empty{display:none}
 .fd[data-st=ok] input{border-color:var(--ok)}.fd[data-st=ok] .sj{color:var(--ok)}
 .fd[data-st=bad] input{border-color:#c62828;background:rgba(198,40,40,.08)}.fd[data-st=bad] .sj{color:#c62828}
@@ -72,7 +74,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 .rp-bar{display:flex;gap:8px;margin:4px 0 8px}.rp-bar input{flex:1;min-width:0;font:inherit;padding:10px;border:1px solid var(--ln);border-radius:8px;background:var(--sf);color:var(--ink)}.rp-bar .btn{width:auto;padding:10px 14px}
 #rp-t{width:100%;box-sizing:border-box;font:inherit;font-size:14px;line-height:1.55;padding:12px;border:1px solid var(--ln);border-radius:10px;background:var(--sf);color:var(--ink);min-height:55vh;resize:vertical}
 .rp-act{display:flex;gap:8px;margin:8px 0}.rp-act .btn{flex:1}
-#rp-cb{padding:0 12px 12px}.rl-f{display:grid;gap:3px;font-size:12px;color:var(--mute);margin:8px 0}.rl-f input{font:inherit;font-size:14px;padding:9px;border:1px solid var(--ln);border-radius:8px;background:var(--sf);color:var(--ink)}#rp-cb h4{margin:14px 0 6px;font-size:13px}
+#rp-cb{padding:0 12px 12px}.rl-c{display:flex;gap:8px;align-items:center;font-size:13px;margin:10px 0 2px;color:var(--ink)}.rl-f{display:grid;gap:3px;font-size:12px;color:var(--mute);margin:8px 0}.rl-f input{font:inherit;font-size:14px;padding:9px;border:1px solid var(--ln);border-radius:8px;background:var(--sf);color:var(--ink)}#rp-cb h4{margin:14px 0 6px;font-size:13px}
 .rl{display:grid;grid-template-columns:auto 1fr auto auto;gap:6px;align-items:center;margin-bottom:8px}.rl>input[data-rl=label]{font:inherit;font-size:14px;padding:8px;border:1px solid var(--ln);border-radius:8px;background:var(--sf);color:var(--ink);min-width:0}.rl>button{width:36px;height:36px;border:1px solid var(--ln);background:var(--sf);color:var(--ink);border-radius:8px}.rl small{grid-column:1/-1;color:var(--mute);font-size:11px}.rl small input{width:110px;font:inherit;font-size:12px;padding:3px 6px;border:1px solid var(--ln);border-radius:6px;background:var(--sf);color:var(--ink)}.rl small button{border:0;background:none;color:#c62828;font:inherit;font-size:11px}
 .ck-top{position:sticky;top:0;display:flex;justify-content:space-between;align-items:center;background:var(--bg);padding:12px 0 8px;z-index:2}.ck-top b{font-size:18px}.ck-top button{border:1px solid var(--ln);background:var(--sf);color:var(--ink);border-radius:8px;font-size:18px;width:40px;height:40px}
 .ck-sum{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;margin:2px 0 8px}.ck-sum b{font-size:16px}.ck-sum b.bad{color:#c62828}.ck-sum span{font-size:12px;color:var(--mute)}
@@ -91,7 +93,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
  <nav id="nav" role="tablist" hidden><button data-t="list" aria-selected="true">체크리스트</button><button data-t="stat">현황</button><button data-t="iss">특이사항</button><button data-t="sh">시트</button><button data-t="set">설정</button></nav>
 </header>
 <main>
- <section id="v-open" class="open"><h2>호기별 엑셀 파일을 열어주세요</h2><p>같은 양식의 파일을 열면 항목이 그대로 나타나고, 입력한 내용은 그 파일에 반영해 저장할 수 있어요.</p><button class="btn" id="op">엑셀 파일 열기</button><input type="file" id="fi" accept=".xlsx" hidden></section>
+ <section id="v-open" class="open"><h2>호기별 엑셀 파일을 열어주세요</h2><p>같은 양식의 파일을 열면 항목이 그대로 나타나고, 입력한 내용은 그 파일에 반영해 저장할 수 있어요.</p><button class="btn" id="op">엑셀 파일 열기</button><input type="file" id="fi" accept=".xlsx" hidden><div class="gdh" id="gd-a"></div></section>
  <section id="v-list" hidden>
   <div class="fl" id="chips"></div>
   <div class="q"><input id="q" type="search" placeholder="항목 검색"><select id="fs"></select><select id="ft"><option value="">전체</option><option value="n">미완료</option><option value="y">완료</option></select></div>
@@ -118,6 +120,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
   <div class="gw" id="sh-t"></div>
  </section>
  <section id="v-set" hidden>
+  <h3>사용 방법</h3><div class="gdh"></div>
   <h3>내 이름</h3><p class="h">완료 체크할 때 작업자 칸에 자동으로 들어갑니다.</p>
   <input id="me" placeholder="이름">
   <h3>엑셀 저장</h3><p class="h">입력한 내용을 연 파일에 반영해 새 엑셀로 저장합니다. 서식과 다른 시트는 그대로 유지돼요.</p>
@@ -129,7 +132,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
   <h3>파일</h3><button class="btn g" id="op2">다른 호기 파일 열기</button>
   <button class="btn g" id="rs">이 파일 입력 되돌리기</button>
   <p class="h">입력한 내용은 앱을 닫으면 사라져요. 작업을 마치거나 앱을 닫기 전에 꼭 엑셀로 저장하세요.</p>
-  <p class="h">앱 버전 v35</p>
+  <p class="h">앱 버전 v40</p>
  </section>
 </main>
 <div id="chk" hidden><div class="ck-top"><b>점검</b><button type="button" id="chk-x" aria-label="닫기">✕</button></div><div id="chk-b"></div></div>
@@ -139,11 +142,20 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 <div class="rp-act"><button type="button" class="btn" id="rp-c">복사</button><button type="button" class="btn g" id="rp-s">공유</button></div>
 <p class="h">작업자·완료일은 체크리스트에서, 작업일수는 공수 시트에서 가져와요. 날짜나 설정을 바꾸면 내용이 다시 만들어지고, 직접 고친 부분은 그때 사라져요.</p>
 <details class="ck-s"><summary><span class="ck-t">보고서 설정</span></summary><div id="rp-cb"></div></details></div>
+<template id="gd"><details class="guide"><summary>사용 방법</summary><ol>
+<li><b>파일 열기</b> — 호기별 엑셀(FX·3D 모두 가능)을 열어요. 원본 파일은 그대로 두고, 저장하면 새 파일이 만들어져요.</li>
+<li><b>체크리스트</b> — 작업을 마치면 동그라미를 눌러 완료 체크해요. 완료일·작업자가 채워지고 공수 시트에도 자동으로 들어가요. 처음에는 미완료 항목만 보이고, 위 필터로 전체·완료를 볼 수 있어요. 항목을 누르면 작업자·비고·특이사항을 적어요.</li>
+<li><b>시트</b> — 측정값(Spec Data)을 칸마다 입력해요. Spec 범위를 벗어나면 바로 빨갛게 알려주고(조정 전은 주황 "조정 필요"), <b>✔ 점검</b> 버튼으로 빠진 칸과 벗어난 칸을 한눈에 볼 수 있어요.</li>
+<li><b>특이사항</b> — 작업 중 생긴 ISSUE를 기록해요.</li>
+<li><b>현황</b> — 진행률을 보고, <b>📋 일일보고 만들기</b>로 보고 글을 만들어 복사·공유해요.</li>
+<li><b>저장</b> — 위쪽 "엑셀 저장"을 누르면 <b>원본이름_입력.xlsx</b>로 저장돼요. 입력한 내용은 앱을 닫으면 사라지니 꼭 저장하세요.</li>
+</ol><div class="gtip">팁: 설정 탭에 내 이름을 적어두면 체크할 때 작업자가 자동으로 들어가요. 사진 영역은 엑셀에서 직접 붙여넣어야 해요.</div></details><details class="guide log"><summary>업데이트 내역</summary><div class="lg"><b>v40</b><small>11/25</small><ul><li>일일보고: 대문자로 그대로 둘 약어 기본 목록 확대 (DIW, UPW, DI, CCR, FSC, BSC, SAC, EBR, EBRM, HRVA, LFC, FDM, CCD, OHT, EMO, DC, RPM, FFU, OK, SABRE, CM, EA, UI, LAM 추가)</li></ul></div><div class="lg"><b>v39</b><small>11/25</small><ul><li>일일보고: 대문자로 그대로 둘 단어에 SRD, DUET, APT, AWC 추가 (FE, BE, PEM과 함께 기본 적용)</li></ul></div><div class="lg"><b>v38</b><small>11/25</small><ul><li>일일보고: 금일 작업의 대문자 영어를 첫 글자만 대문자로 표기 (ALIGNER VACCUM → Aligner Vaccum), FE·BE·PEM은 그대로 두고 보고서 설정에서 예외 단어 추가·삭제 가능</li></ul></div><div class="lg"><b>v37</b><small>11/25</small><ul><li>업데이트 내역 추가</li></ul></div><div class="lg"><b>v36</b><small>11/25</small><ul><li>첫 화면과 설정 탭에 사용 방법 추가</li></ul></div><div class="lg"><b>v35</b><small>11/25</small><ul><li>체크리스트: 파일을 열면 미완료 항목만 먼저 표시 (방금 체크한 항목은 바로 사라지지 않고, 다른 탭에 갔다 오면 정리)</li></ul></div><div class="lg"><b>v34</b><small>11/25</small><ul><li>일일보고: 마지막 문구 제거 (필요하면 보고서 설정에서 직접 입력)</li></ul></div><div class="lg"><b>v33</b><small>11/25</small><ul><li>엑셀 저장: 압축파일(zip)로 인식되던 문제 수정, 엑셀 형식으로 저장</li></ul></div><div class="lg"><b>v32</b><small>11/25</small><ul><li>일일보고: 한 유닛만 한 작업도 "Cell #1"처럼 표기</li><li>일일보고: 항목 이름에 Cell1 등이 들어 있어도 #번호로 정리하고 같은 작업은 한 줄로 합침</li></ul></div><div class="lg"><b>v31</b><small>11/25</small><ul><li>일일보고: 여러 유닛 작업을 "Cell #1, #2, #3"으로 표기</li></ul></div><div class="lg"><b>v30</b><small>11/25</small><ul><li>일일보고 자동 작성 (현황 탭): 작업인원·작업일수·진행률·금일 작업·특이사항을 양식대로 만들고 복사·공유</li><li>진행률 줄 이름·순서·포함 여부와 호기 번호, 단계(T1-1) 설정</li></ul></div><div class="lg"><b>v29</b><small>11/25</small><ul><li>Spec 자동 판정: 값을 입력하면 범위 안(초록) / 조정 필요(주황) / Spec 벗어남(빨강)을 바로 표시</li><li>점검 화면: 미입력 칸과 Spec 벗어난 칸을 구역별로 모아 보고, 누르면 해당 칸으로 이동</li></ul></div><div class="lg"><b>v28</b><small>11/24</small><ul><li>3D 시트 "6. 각 Cell's Chamber Level Check Data" 화면 정리, DUET1 left → DUET1 right 순서로 표시</li></ul></div><div class="lg"><b>v27</b><small>11/24</small><ul><li>9·10·13·14·15번 구역(PEM Level, PEM Spin RPM, FSC Nozzle, Wafer Rinse & CCR, CUP Open Speed) 화면 정리</li><li>엑셀의 "/" 표시 칸과 표 바깥 빈 칸은 입력칸에서 제외, 같은 단위·Spec은 한 번만 표시</li></ul></div><div class="lg"><b>v26</b><small>11/24</small><ul><li>8번 Cell Digi Pas 구역 정리: CELL별로 묶고 조정 전/후를 색으로 구분</li></ul></div><div class="lg"><b>v25 이전</b><ul><li>시트 입력을 칸마다 입력하는 카드 화면으로 개선, 조정 전(주황)/조정 후(초록) 구분</li><li>3D 장비 엑셀 인식 추가</li><li>공수 자동 입력: 고정 서식(Date yyyy-mm-dd, 작업구분 굵게, 행 높이 자동)</li><li>아이폰(웹앱) 지원, 엑셀 저장 시 서식과 다른 시트 유지</li></ul></div></details></template>
 <div id="toast"></div>
 <script src="jszip.min.js"></script>
 <script>
 let D=[],ctx=null,O=null,SH=[],T={},AM=false,CUR=0,SC=0,NK=true,LS='',OD=new Set(),AU={gm:{},dy:{},a:{}},AG=true,SE=0;
 const $=s=>document.querySelector(s);
+setTimeout(()=>{document.querySelectorAll('.gdh').forEach(e=>{e.innerHTML=$('#gd').innerHTML});const a=$('#gd-a details');if(a)a.open=true},0);
 let S={r:{},iss:[],me:''};
 try{S.me=localStorage.getItem('sbr-me')||'';AG=localStorage.getItem('sbr-auto')!=='0'}catch(e){}
 const save=()=>{try{syncG()}catch(e){if(!SE){SE=1;toast('자동 입력 오류: '+(e&&e.message))}}try{localStorage.setItem('sbr-me',S.me)}catch(e){}updSv()};
@@ -392,14 +404,16 @@ function fJudge(){document.querySelectorAll('#sh-t .fd[data-j]').forEach(d=>{con
  const k=!st?'':st==='ok'?'ok':pre?'adj':'bad';d.dataset.st=k;b.textContent=!k?'':k==='ok'?'✓ 범위 안 ('+d.dataset.rt+')':(pre?'조정 필요 · ':'✗ Spec 벗어남 · ')+d.dataset.rt})}
 /* ===== 일일보고 ===== */
 const RPK='sbr-rep';
-let REP={pre:{},id:{},ph:'T1-1',end:'',cfg:{}},RPD='';
+let REP={pre:{},id:{},ph:'T1-1',end:'',cap:true,keep:'FE, BE, PEM, SRD, DUET, APT, AWC, DIW, UPW, DI, CCR, FSC, BSC, SAC, EBR, EBRM, HRVA, LFC, FDM, CCD, OHT, EMO, DC, RPM, FFU, OK, SABRE, CM, EA, UI, LAM',cfg:{}},RPD='';
 try{const x=JSON.parse(localStorage.getItem(RPK)||'null');if(x)REP=Object.assign(REP,x)}catch(e){}
 if(/^이상입니다\.?\s*(식사 후\s*)?사무실 복귀하겠습니다\.?$/.test(String(REP.end||'').trim()))REP.end='';
+if(['FE, BE, PEM','FE, BE, PEM, SRD, DUET, APT, AWC'].includes(String(REP.keep||'').trim()))REP.keep='FE, BE, PEM, SRD, DUET, APT, AWC, DIW, UPW, DI, CCR, FSC, BSC, SAC, EBR, EBRM, HRVA, LFC, FDM, CCD, OHT, EMO, DC, RPM, FFU, OK, SABRE, CM, EA, UI, LAM';
 const repSave=()=>{try{localStorage.setItem(RPK,JSON.stringify(REP))}catch(e){}};
 const rKind=()=>SH.some(m=>/PPT/i.test(m.n))?'3D':'FX';
 const R_AL=[[/process\s*kit/i,'Process kit조립'],[/robot\s*level/i,'Robot Leveling'],[/(ch|chamber)\s*level/i,'Chamber Leveling'],[/sensor|switch/i,'Switch setting'],[/bath/i,'Bath Setting'],[/flow/i,'UPW Flow Setting'],[/^\s*test\s*$/i,'Test'],[/parts/i,'Parts 조립']];
 const rAlias=g=>{const a=R_AL.find(([re])=>re.test(g));return a?a[1]:g.trim()};
 const rSplit=s=>String(s||'').split(/[,，、\/·]+/).map(x=>x.trim()).filter(Boolean);
+const rCase=s=>{if(!REP.cap)return s;const k=new Set(rSplit(REP.keep).map(x=>x.toUpperCase()));return s.replace(/[A-Za-z]{2,}/g,w=>w===w.toUpperCase()&&!k.has(w)?w[0]+w.slice(1).toLowerCase():w)};
 function repLines(){const c=REP.cfg[rKind()]||(REP.cfg[rKind()]={lines:[]});
  const gs=[...new Set(D.map(r=>r[3]).filter(Boolean))];
  c.lines=c.lines.filter(l=>l.k[0]==='c'||gs.includes(l.k.slice(2)));
@@ -425,13 +439,13 @@ function repText(date){
  const works=[...gm].map(([it,us])=>{us=[...new Set(us.filter(Boolean))];let p='';
   if(us.length>1){const q=us.map(u=>/^(.*?)(\d+)$/.exec(u));p=q.every(x=>x&&x[1]===q[0][1])?(q[0][1].trim()+' '+q.map(x=>'#'+x[2]).join(', ')).trim():us.map(fu).join(', ')}
   else if(us.length===1&&!/^main$/i.test(us[0])&&!it.toLowerCase().includes(us[0].toLowerCase()))p=fu(us[0]);
-  let s=[p,it].filter(Boolean).join(' ');if(ure)s=s.replace(ure,m=>fu(m));return '- '+s+(/done\s*$/i.test(it)?'':' Done')});
+  let s=[p,it].filter(Boolean).join(' ');if(ure)s=s.replace(ure,m=>fu(m));s=rCase(s);return '- '+s+(/done\s*$/i.test(it)?'':' Done')});
  const mm=+date.slice(5,7),dd=+date.slice(8);
  const sp=[...new Set([...S.iss.filter(x=>+x.m===mm&&+x.dy===dd).map(x=>[...new Set([x.it,x.is].filter(Boolean))].join(' ').trim()),...done.map(r=>S.r[r[0]].sp)].filter(Boolean))];
  return [`${pre} ${un}${idt} ${REP.ph} 작업진행 현황`,'',`작업인원 : ${names.join(', ')}`,`작업일수: ${day}일차`,'',...repProg().map((s,i)=>`${i+1}. ${s}`),'','금일 작업',...(works.length?works:['- (완료 처리한 항목 없음)']),'','특이사항',...(sp.length?sp.map(s=>'- '+s):['- 특이사항 없음']),...(REP.end&&REP.end.trim()?['',REP.end]:[])].join('\n')}
 function repCfg(){const kind=rKind(),L=repLines(),un=ctx&&ctx.unit;
  const inp=(k,l,v,ph)=>`<label class="rl-f">${l}<input data-rk="${k}" value="${esc(v)}" placeholder="${esc(ph||'')}"></label>`;
- $('#rp-cb').innerHTML=inp('pre','제목 앞부분 (장비 종류까지)',REP.pre[kind]||('M15X LAM SBR '+kind))+inp('id','이 호기의 번호 (예: #273884)',REP.id[un]||'')+inp('ph','단계 (예: T1-1)',REP.ph)+inp('end','마지막 문구 (비우면 안 나와요)',REP.end)+
+ $('#rp-cb').innerHTML=inp('pre','제목 앞부분 (장비 종류까지)',REP.pre[kind]||('M15X LAM SBR '+kind))+inp('id','이 호기의 번호 (예: #273884)',REP.id[un]||'')+inp('ph','단계 (예: T1-1)',REP.ph)+inp('end','마지막 문구 (비우면 안 나와요)',REP.end)+`<label class="rl-c"><input type="checkbox" data-rkc="cap"${REP.cap?' checked':''}>금일 작업을 첫 글자만 대문자로 (ALIGNER → Aligner)</label>`+inp('keep','대문자 그대로 둘 단어 (쉼표로 구분, 예: FE, BE, PEM, LAM)',REP.keep)+
   `<h4>진행률 줄 (이름이 같으면 한 줄로 합쳐 계산)</h4>`+L.map((l,i)=>{const rows=lrows(l),d=rows.filter(r=>isDone(r[0])).length;
    return `<div class="rl" data-i="${i}"><input type="checkbox" data-rl="inc"${l.inc?' checked':''} aria-label="포함"><input data-rl="label" value="${esc(l.label)}"><button type="button" data-mv="-1" aria-label="위로">↑</button><button type="button" data-mv="1" aria-label="아래로">↓</button>
    <small>${l.k[0]==='g'?'작업구분 '+esc(l.k.slice(2)):'항목에 <input data-rl="kw" value="'+esc(l.kw||'')+'" placeholder="포함된 글자"> 가 들어간 것'} · ${d}/${rows.length}${l.k[0]==='c'?' <button type="button" data-del="1">삭제</button>':''}</small></div>`}).join('')+
@@ -450,6 +464,7 @@ $('#rp-d').onchange=e=>{RPD=e.target.value||today();repGen()};
 $('#rp-re').onclick=()=>{repGen();toast('다시 만들었습니다')};
 $('#rp-c').onclick=repCopy;$('#rp-s').onclick=repShare;
 $('#rp-cb').oninput=e=>{const t=e.target,kind=rKind();
+ if(t.dataset.rkc){REP[t.dataset.rkc]=t.checked;repSave();repGen();return}
  if(t.dataset.rk){const k=t.dataset.rk;if(k==='pre')REP.pre[kind]=t.value;else if(k==='id')REP.id[ctx.unit]=t.value;else REP[k]=t.value;repSave();repGen();return}
  const l=t.dataset.rl&&REP.cfg[kind].lines[+t.closest('.rl').dataset.i];if(!l)return;
  if(t.dataset.rl==='inc')l.inc=t.checked;else l[t.dataset.rl]=t.value;repSave();repGen()};
