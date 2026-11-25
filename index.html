@@ -28,7 +28,7 @@ main{padding:12px 14px 96px;max-width:720px;margin:0 auto}
 .chip[aria-pressed=true]{background:var(--ink);color:var(--sf);border-color:var(--ink)}
 .chip small{opacity:.65;margin-left:4px}
 input,select,textarea{font:inherit;color:var(--ink);background:var(--sf);border:1px solid var(--ln);border-radius:8px;padding:9px 10px;width:100%;min-width:0}
-.q{display:flex;gap:6px;margin-bottom:10px}
+.q{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}#fd{flex:1 1 100%}
 .q input{flex:2}.q select{flex:1}
 ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
 .row{background:var(--sf);border:1px solid var(--ln);border-radius:10px;overflow:hidden}
@@ -96,7 +96,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
  <section id="v-open" class="open"><h2>호기별 엑셀 파일을 열어주세요</h2><p>같은 양식의 파일을 열면 항목이 그대로 나타나고, 입력한 내용은 그 파일에 반영해 저장할 수 있어요.</p><button class="btn" id="op">엑셀 파일 열기</button><input type="file" id="fi" accept=".xlsx" hidden><div class="gdh" id="gd-a"></div></section>
  <section id="v-list" hidden>
   <div class="fl" id="chips"></div>
-  <div class="q"><input id="q" type="search" placeholder="항목 검색"><select id="fs"></select><select id="ft"><option value="">전체</option><option value="n">미완료</option><option value="y">완료</option></select></div>
+  <div class="q"><input id="q" type="search" placeholder="항목 검색"><select id="fs"></select><select id="ft"><option value="">전체</option><option value="n">미완료</option><option value="y">완료</option></select><select id="fd" hidden></select></div>
   <ul id="ls"></ul>
  </section>
  <section id="v-stat" hidden></section>
@@ -132,7 +132,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
   <h3>파일</h3><button class="btn g" id="op2">다른 호기 파일 열기</button>
   <button class="btn g" id="rs">이 파일 입력 되돌리기</button>
   <p class="h">입력한 내용은 앱을 닫으면 사라져요. 작업을 마치거나 앱을 닫기 전에 꼭 엑셀로 저장하세요.</p>
-  <p class="h">앱 버전 v40</p>
+  <p class="h">앱 버전 v42</p>
  </section>
 </main>
 <div id="chk" hidden><div class="ck-top"><b>점검</b><button type="button" id="chk-x" aria-label="닫기">✕</button></div><div id="chk-b"></div></div>
@@ -149,7 +149,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 <li><b>특이사항</b> — 작업 중 생긴 ISSUE를 기록해요.</li>
 <li><b>현황</b> — 진행률을 보고, <b>📋 일일보고 만들기</b>로 보고 글을 만들어 복사·공유해요.</li>
 <li><b>저장</b> — 위쪽 "엑셀 저장"을 누르면 <b>원본이름_입력.xlsx</b>로 저장돼요. 입력한 내용은 앱을 닫으면 사라지니 꼭 저장하세요.</li>
-</ol><div class="gtip">팁: 설정 탭에 내 이름을 적어두면 체크할 때 작업자가 자동으로 들어가요. 사진 영역은 엑셀에서 직접 붙여넣어야 해요.</div></details><details class="guide log"><summary>업데이트 내역</summary><div class="lg"><b>v40</b><small>11/25</small><ul><li>일일보고: 대문자로 그대로 둘 약어 기본 목록 확대 (DIW, UPW, DI, CCR, FSC, BSC, SAC, EBR, EBRM, HRVA, LFC, FDM, CCD, OHT, EMO, DC, RPM, FFU, OK, SABRE, CM, EA, UI, LAM 추가)</li></ul></div><div class="lg"><b>v39</b><small>11/25</small><ul><li>일일보고: 대문자로 그대로 둘 단어에 SRD, DUET, APT, AWC 추가 (FE, BE, PEM과 함께 기본 적용)</li></ul></div><div class="lg"><b>v38</b><small>11/25</small><ul><li>일일보고: 금일 작업의 대문자 영어를 첫 글자만 대문자로 표기 (ALIGNER VACCUM → Aligner Vaccum), FE·BE·PEM은 그대로 두고 보고서 설정에서 예외 단어 추가·삭제 가능</li></ul></div><div class="lg"><b>v37</b><small>11/25</small><ul><li>업데이트 내역 추가</li></ul></div><div class="lg"><b>v36</b><small>11/25</small><ul><li>첫 화면과 설정 탭에 사용 방법 추가</li></ul></div><div class="lg"><b>v35</b><small>11/25</small><ul><li>체크리스트: 파일을 열면 미완료 항목만 먼저 표시 (방금 체크한 항목은 바로 사라지지 않고, 다른 탭에 갔다 오면 정리)</li></ul></div><div class="lg"><b>v34</b><small>11/25</small><ul><li>일일보고: 마지막 문구 제거 (필요하면 보고서 설정에서 직접 입력)</li></ul></div><div class="lg"><b>v33</b><small>11/25</small><ul><li>엑셀 저장: 압축파일(zip)로 인식되던 문제 수정, 엑셀 형식으로 저장</li></ul></div><div class="lg"><b>v32</b><small>11/25</small><ul><li>일일보고: 한 유닛만 한 작업도 "Cell #1"처럼 표기</li><li>일일보고: 항목 이름에 Cell1 등이 들어 있어도 #번호로 정리하고 같은 작업은 한 줄로 합침</li></ul></div><div class="lg"><b>v31</b><small>11/25</small><ul><li>일일보고: 여러 유닛 작업을 "Cell #1, #2, #3"으로 표기</li></ul></div><div class="lg"><b>v30</b><small>11/25</small><ul><li>일일보고 자동 작성 (현황 탭): 작업인원·작업일수·진행률·금일 작업·특이사항을 양식대로 만들고 복사·공유</li><li>진행률 줄 이름·순서·포함 여부와 호기 번호, 단계(T1-1) 설정</li></ul></div><div class="lg"><b>v29</b><small>11/25</small><ul><li>Spec 자동 판정: 값을 입력하면 범위 안(초록) / 조정 필요(주황) / Spec 벗어남(빨강)을 바로 표시</li><li>점검 화면: 미입력 칸과 Spec 벗어난 칸을 구역별로 모아 보고, 누르면 해당 칸으로 이동</li></ul></div><div class="lg"><b>v28</b><small>11/24</small><ul><li>3D 시트 "6. 각 Cell's Chamber Level Check Data" 화면 정리, DUET1 left → DUET1 right 순서로 표시</li></ul></div><div class="lg"><b>v27</b><small>11/24</small><ul><li>9·10·13·14·15번 구역(PEM Level, PEM Spin RPM, FSC Nozzle, Wafer Rinse & CCR, CUP Open Speed) 화면 정리</li><li>엑셀의 "/" 표시 칸과 표 바깥 빈 칸은 입력칸에서 제외, 같은 단위·Spec은 한 번만 표시</li></ul></div><div class="lg"><b>v26</b><small>11/24</small><ul><li>8번 Cell Digi Pas 구역 정리: CELL별로 묶고 조정 전/후를 색으로 구분</li></ul></div><div class="lg"><b>v25 이전</b><ul><li>시트 입력을 칸마다 입력하는 카드 화면으로 개선, 조정 전(주황)/조정 후(초록) 구분</li><li>3D 장비 엑셀 인식 추가</li><li>공수 자동 입력: 고정 서식(Date yyyy-mm-dd, 작업구분 굵게, 행 높이 자동)</li><li>아이폰(웹앱) 지원, 엑셀 저장 시 서식과 다른 시트 유지</li></ul></div></details></template>
+</ol><div class="gtip">팁: 설정 탭에 내 이름을 적어두면 체크할 때 작업자가 자동으로 들어가요. 사진 영역은 엑셀에서 직접 붙여넣어야 해요.</div></details><details class="guide log"><summary>업데이트 내역</summary><div class="lg"><b>v42</b><small>11/25</small><ul><li>체크리스트: 완료일 기준으로 보는 '날짜' 필터 추가 (완료한 날짜가 목록으로 나오고 날짜별 완료 건수 표시, 날짜를 고르면 그날 완료한 항목만 표시)</li></ul></div><div class="lg"><b>v41</b><small>11/25</small><ul><li>체크리스트: 방금 완료 체크한 항목이 다른 탭에 다녀와도 '미완료' 목록에서 사라지지 않음 (필터를 바꾸거나 파일을 다시 열 때 정리됨)</li></ul></div><div class="lg"><b>v40</b><small>11/25</small><ul><li>일일보고: 대문자로 그대로 둘 약어 기본 목록 확대 (DIW, UPW, DI, CCR, FSC, BSC, SAC, EBR, EBRM, HRVA, LFC, FDM, CCD, OHT, EMO, DC, RPM, FFU, OK, SABRE, CM, EA, UI, LAM 추가)</li></ul></div><div class="lg"><b>v39</b><small>11/25</small><ul><li>일일보고: 대문자로 그대로 둘 단어에 SRD, DUET, APT, AWC 추가 (FE, BE, PEM과 함께 기본 적용)</li></ul></div><div class="lg"><b>v38</b><small>11/25</small><ul><li>일일보고: 금일 작업의 대문자 영어를 첫 글자만 대문자로 표기 (ALIGNER VACCUM → Aligner Vaccum), FE·BE·PEM은 그대로 두고 보고서 설정에서 예외 단어 추가·삭제 가능</li></ul></div><div class="lg"><b>v37</b><small>11/25</small><ul><li>업데이트 내역 추가</li></ul></div><div class="lg"><b>v36</b><small>11/25</small><ul><li>첫 화면과 설정 탭에 사용 방법 추가</li></ul></div><div class="lg"><b>v35</b><small>11/25</small><ul><li>체크리스트: 파일을 열면 미완료 항목만 먼저 표시 (방금 체크한 항목은 바로 사라지지 않고, 다른 탭에 갔다 오면 정리)</li></ul></div><div class="lg"><b>v34</b><small>11/25</small><ul><li>일일보고: 마지막 문구 제거 (필요하면 보고서 설정에서 직접 입력)</li></ul></div><div class="lg"><b>v33</b><small>11/25</small><ul><li>엑셀 저장: 압축파일(zip)로 인식되던 문제 수정, 엑셀 형식으로 저장</li></ul></div><div class="lg"><b>v32</b><small>11/25</small><ul><li>일일보고: 한 유닛만 한 작업도 "Cell #1"처럼 표기</li><li>일일보고: 항목 이름에 Cell1 등이 들어 있어도 #번호로 정리하고 같은 작업은 한 줄로 합침</li></ul></div><div class="lg"><b>v31</b><small>11/25</small><ul><li>일일보고: 여러 유닛 작업을 "Cell #1, #2, #3"으로 표기</li></ul></div><div class="lg"><b>v30</b><small>11/25</small><ul><li>일일보고 자동 작성 (현황 탭): 작업인원·작업일수·진행률·금일 작업·특이사항을 양식대로 만들고 복사·공유</li><li>진행률 줄 이름·순서·포함 여부와 호기 번호, 단계(T1-1) 설정</li></ul></div><div class="lg"><b>v29</b><small>11/25</small><ul><li>Spec 자동 판정: 값을 입력하면 범위 안(초록) / 조정 필요(주황) / Spec 벗어남(빨강)을 바로 표시</li><li>점검 화면: 미입력 칸과 Spec 벗어난 칸을 구역별로 모아 보고, 누르면 해당 칸으로 이동</li></ul></div><div class="lg"><b>v28</b><small>11/24</small><ul><li>3D 시트 "6. 각 Cell's Chamber Level Check Data" 화면 정리, DUET1 left → DUET1 right 순서로 표시</li></ul></div><div class="lg"><b>v27</b><small>11/24</small><ul><li>9·10·13·14·15번 구역(PEM Level, PEM Spin RPM, FSC Nozzle, Wafer Rinse & CCR, CUP Open Speed) 화면 정리</li><li>엑셀의 "/" 표시 칸과 표 바깥 빈 칸은 입력칸에서 제외, 같은 단위·Spec은 한 번만 표시</li></ul></div><div class="lg"><b>v26</b><small>11/24</small><ul><li>8번 Cell Digi Pas 구역 정리: CELL별로 묶고 조정 전/후를 색으로 구분</li></ul></div><div class="lg"><b>v25 이전</b><ul><li>시트 입력을 칸마다 입력하는 카드 화면으로 개선, 조정 전(주황)/조정 후(초록) 구분</li><li>3D 장비 엑셀 인식 추가</li><li>공수 자동 입력: 고정 서식(Date yyyy-mm-dd, 작업구분 굵게, 행 높이 자동)</li><li>아이폰(웹앱) 지원, 엑셀 저장 시 서식과 다른 시트 유지</li></ul></div></details></template>
 <div id="toast"></div>
 <script src="jszip.min.js"></script>
 <script>
@@ -164,7 +164,7 @@ const today=()=>{const d=new Date(),p=n=>String(n).padStart(2,'0');return d.getF
 const rec=n=>S.r[n]||(S.r[n]={});
 const uniq=i=>[...new Set(D.map(r=>r[i]).filter(Boolean))];
 let units=[];
-const f={u:'',s:'',t:'',q:''},open=new Set(),RC=new Set();
+const f={u:'',s:'',t:'',q:'',d:''},open=new Set(),RC=new Set();
 const F=[['d','완료일','date'],['w','작업자'],['w2','작업자 2'],['c','Conform'],['note','비고'],['sp','특이사항']];
 let tt;const toast=m=>{const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('on'),2200)};
 const isDone=n=>!!(S.r[n]&&S.r[n].g==='완료');
@@ -179,7 +179,12 @@ function draw(){
  $('#pg').style.width=(dn/D.length*100)+'%';
  $('#chips').innerHTML=['',...units].map(u=>{const a=D.filter(r=>!u||r[2]===u);return `<button class="chip" data-u="${esc(u)}" aria-pressed="${f.u===u}">${u||'전체'}<small>${a.filter(r=>isDone(r[0])).length}/${a.length}</small></button>`}).join('');
  const q=f.q.trim().toLowerCase();
- const L=D.filter(r=>(!f.u||r[2]===f.u)&&(!f.s||r[1]===f.s)&&(!f.t||(f.t==='y')===isDone(r[0])||(f.t==='n'&&RC.has(r[0])))&&(!q||(r[4]+' '+r[3]+' '+r[2]).toLowerCase().includes(q)));
+ const dm=new Map();D.forEach(r=>{if(!isDone(r[0]))return;const d=nd(S.r[r[0]].d||'');if(/^\d{4}-\d\d-\d\d$/.test(d))dm.set(d,(dm.get(d)||0)+1)});
+ if(f.d&&!dm.has(f.d))f.d='';
+ const ds=[...dm.keys()].sort().reverse(),sig=ds.map(d=>d+dm.get(d)).join('|'),fd=$('#fd');
+ if(fd.dataset.sig!==sig){fd.dataset.sig=sig;const W='일월화수목금토';fd.innerHTML='<option value="">전체 날짜</option>'+ds.map(d=>`<option value="${d}">${+d.slice(5,7)}월 ${+d.slice(8)}일(${W[new Date(+d.slice(0,4),+d.slice(5,7)-1,+d.slice(8)).getDay()]}) · 완료 ${dm.get(d)}건</option>`).join('')}
+ fd.hidden=!ds.length;fd.value=f.d;
+ const L=D.filter(r=>(!f.u||r[2]===f.u)&&(!f.s||r[1]===f.s)&&(!f.d||(isDone(r[0])&&nd(S.r[r[0]].d||'')===f.d))&&(!f.t||(f.t==='y')===isDone(r[0])||(f.t==='n'&&RC.has(r[0])))&&(!q||(r[4]+' '+r[3]+' '+r[2]).toLowerCase().includes(q)));
  $('#ls').innerHTML=L.map((r,i)=>(f.u||(i&&L[i-1][2]===r[2])?'':`<li class="gh">${esc(r[2])}</li>`)+row(r)).join('')||(f.t==='n'&&!f.u&&!f.s&&!f.q.trim()?'<p class="h">모든 항목을 완료했어요 🎉 위에서 "전체"를 고르면 다시 볼 수 있어요.</p>':'<p class="h">조건에 맞는 항목이 없습니다.</p>');
 }
 function bars(title,i){const m=new Map();D.forEach(r=>{const k=r[i]||'-',a=m.get(k)||[0,0];a[1]++;if(isDone(r[0]))a[0]++;m.set(k,a)});
@@ -188,13 +193,14 @@ function issues(){$('#i-ls').innerHTML=S.iss.map((x,i)=>`<div class="iss"><butto
 function tab(t){document.querySelectorAll('#nav button').forEach(b=>b.setAttribute('aria-selected',b.dataset.t===t));
  ['list','stat','iss','sh','set'].forEach(k=>$('#v-'+k).hidden=k!==t);
  if(t==='stat')$('#v-stat').innerHTML='<button class="btn" id="rp-o" type="button">📋 일일보고 만들기</button>'+(ctx.cm.st?bars('단계별',1):'')+bars('작업구분별',3)+bars('Unit별',2);
- if(t==='iss')issues();if(t==='sh')shDraw();if(t==='list'&&D.length){RC.clear();draw()}window.scrollTo(0,0)}
+ if(t==='iss')issues();if(t==='sh')shDraw();if(t==='list'&&D.length)draw();window.scrollTo(0,0)}
 
 $('#nav').onclick=e=>{const b=e.target.closest('button');if(b)tab(b.dataset.t)};
 $('#chips').onclick=e=>{const b=e.target.closest('.chip');if(b){f.u=b.dataset.u;draw()}};
 $('#q').oninput=e=>{f.q=e.target.value;draw()};
 $('#fs').onchange=e=>{f.s=e.target.value;draw()};
-$('#ft').onchange=e=>{f.t=e.target.value;RC.clear();draw()};
+$('#ft').onchange=e=>{f.t=e.target.value;if(f.t==='n')f.d='';RC.clear();draw()};
+$('#fd').onchange=e=>{f.d=e.target.value;if(f.d&&f.t==='n'){f.t='';$('#ft').value=''}RC.clear();draw()};
 $('#i-d').value=today();
 $('#ls').onclick=e=>{const li=e.target.closest('li'),a=e.target.closest('[data-a]');if(!li||!a)return;const n=+li.dataset.n;
  if(a.dataset.a==='ck'){const x=rec(n);x.g=x.g==='완료'?'':'완료';if(x.g==='완료'){x.d=x.d||today();x.w=x.w||S.me;RC.add(n)}else RC.delete(n);save();draw();try{navigator.vibrate(12)}catch(e){}}
@@ -256,7 +262,7 @@ async function load(file){
  for(const s of b.sh)if(s.p!==main.p&&s.n!=='특이사항'&&s.n!=='Data'&&!s.hid&&!/^세부 정보/.test(s.n))SH.push(await model(z,b,xf,s));
  try{Object.keys(localStorage).filter(k=>k.startsWith('sbr-d:')).forEach(k=>localStorage.removeItem(k))}catch(e){}
 try{syncG()}catch(e){}
- units=uniq(2);f.u=f.s=f.q='';f.t='n';RC.clear();$('#ft').value='n';$('#q').value='';
+ units=uniq(2);f.u=f.s=f.q=f.d='';f.t='n';RC.clear();$('#ft').value='n';$('#q').value='';
  $('#fs').innerHTML='<option value="">전체 단계</option>'+uniq(1).map(s=>`<option>${esc(s)}</option>`).join('');
  $('#i-u').innerHTML=units.map(u=>`<option>${esc(u)}</option>`).join('');
  $('#sh-s').innerHTML=SH.map((m,i)=>`<option value="${i}">${esc(m.n)}</option>`).join('');$('#sh-a').checked=AM=false;secOpts();
