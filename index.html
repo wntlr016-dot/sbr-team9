@@ -129,7 +129,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
   <h3>파일</h3><button class="btn g" id="op2">다른 호기 파일 열기</button>
   <button class="btn g" id="rs">이 파일 입력 되돌리기</button>
   <p class="h">입력한 내용은 앱을 닫으면 사라져요. 작업을 마치거나 앱을 닫기 전에 꼭 엑셀로 저장하세요.</p>
-  <p class="h">앱 버전 v34</p>
+  <p class="h">앱 버전 v35</p>
  </section>
 </main>
 <div id="chk" hidden><div class="ck-top"><b>점검</b><button type="button" id="chk-x" aria-label="닫기">✕</button></div><div id="chk-b"></div></div>
@@ -152,7 +152,7 @@ const today=()=>{const d=new Date(),p=n=>String(n).padStart(2,'0');return d.getF
 const rec=n=>S.r[n]||(S.r[n]={});
 const uniq=i=>[...new Set(D.map(r=>r[i]).filter(Boolean))];
 let units=[];
-const f={u:'',s:'',t:'',q:''},open=new Set();
+const f={u:'',s:'',t:'',q:''},open=new Set(),RC=new Set();
 const F=[['d','완료일','date'],['w','작업자'],['w2','작업자 2'],['c','Conform'],['note','비고'],['sp','특이사항']];
 let tt;const toast=m=>{const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('on'),2200)};
 const isDone=n=>!!(S.r[n]&&S.r[n].g==='완료');
@@ -167,8 +167,8 @@ function draw(){
  $('#pg').style.width=(dn/D.length*100)+'%';
  $('#chips').innerHTML=['',...units].map(u=>{const a=D.filter(r=>!u||r[2]===u);return `<button class="chip" data-u="${esc(u)}" aria-pressed="${f.u===u}">${u||'전체'}<small>${a.filter(r=>isDone(r[0])).length}/${a.length}</small></button>`}).join('');
  const q=f.q.trim().toLowerCase();
- const L=D.filter(r=>(!f.u||r[2]===f.u)&&(!f.s||r[1]===f.s)&&(!f.t||(f.t==='y')===isDone(r[0]))&&(!q||(r[4]+' '+r[3]+' '+r[2]).toLowerCase().includes(q)));
- $('#ls').innerHTML=L.map((r,i)=>(f.u||(i&&L[i-1][2]===r[2])?'':`<li class="gh">${esc(r[2])}</li>`)+row(r)).join('')||'<p class="h">조건에 맞는 항목이 없습니다.</p>';
+ const L=D.filter(r=>(!f.u||r[2]===f.u)&&(!f.s||r[1]===f.s)&&(!f.t||(f.t==='y')===isDone(r[0])||(f.t==='n'&&RC.has(r[0])))&&(!q||(r[4]+' '+r[3]+' '+r[2]).toLowerCase().includes(q)));
+ $('#ls').innerHTML=L.map((r,i)=>(f.u||(i&&L[i-1][2]===r[2])?'':`<li class="gh">${esc(r[2])}</li>`)+row(r)).join('')||(f.t==='n'&&!f.u&&!f.s&&!f.q.trim()?'<p class="h">모든 항목을 완료했어요 🎉 위에서 "전체"를 고르면 다시 볼 수 있어요.</p>':'<p class="h">조건에 맞는 항목이 없습니다.</p>');
 }
 function bars(title,i){const m=new Map();D.forEach(r=>{const k=r[i]||'-',a=m.get(k)||[0,0];a[1]++;if(isDone(r[0]))a[0]++;m.set(k,a)});
  return `<h3>${title}</h3>`+[...m].map(([k,[d,t]])=>`<div class="bar"><span>${esc(k)}</span><i><u style="width:${d/t*100}%"></u></i><em>${d}/${t}</em></div>`).join('')}
@@ -176,16 +176,16 @@ function issues(){$('#i-ls').innerHTML=S.iss.map((x,i)=>`<div class="iss"><butto
 function tab(t){document.querySelectorAll('#nav button').forEach(b=>b.setAttribute('aria-selected',b.dataset.t===t));
  ['list','stat','iss','sh','set'].forEach(k=>$('#v-'+k).hidden=k!==t);
  if(t==='stat')$('#v-stat').innerHTML='<button class="btn" id="rp-o" type="button">📋 일일보고 만들기</button>'+(ctx.cm.st?bars('단계별',1):'')+bars('작업구분별',3)+bars('Unit별',2);
- if(t==='iss')issues();if(t==='sh')shDraw();window.scrollTo(0,0)}
+ if(t==='iss')issues();if(t==='sh')shDraw();if(t==='list'&&D.length){RC.clear();draw()}window.scrollTo(0,0)}
 
 $('#nav').onclick=e=>{const b=e.target.closest('button');if(b)tab(b.dataset.t)};
 $('#chips').onclick=e=>{const b=e.target.closest('.chip');if(b){f.u=b.dataset.u;draw()}};
 $('#q').oninput=e=>{f.q=e.target.value;draw()};
 $('#fs').onchange=e=>{f.s=e.target.value;draw()};
-$('#ft').onchange=e=>{f.t=e.target.value;draw()};
+$('#ft').onchange=e=>{f.t=e.target.value;RC.clear();draw()};
 $('#i-d').value=today();
 $('#ls').onclick=e=>{const li=e.target.closest('li'),a=e.target.closest('[data-a]');if(!li||!a)return;const n=+li.dataset.n;
- if(a.dataset.a==='ck'){const x=rec(n);x.g=x.g==='완료'?'':'완료';if(x.g==='완료'){x.d=x.d||today();x.w=x.w||S.me}save();draw();try{navigator.vibrate(12)}catch(e){}}
+ if(a.dataset.a==='ck'){const x=rec(n);x.g=x.g==='완료'?'':'완료';if(x.g==='완료'){x.d=x.d||today();x.w=x.w||S.me;RC.add(n)}else RC.delete(n);save();draw();try{navigator.vibrate(12)}catch(e){}}
  else{open.has(n)?open.delete(n):open.add(n);li.outerHTML=row(D.find(r=>r[0]===n))}};
 $('#ls').oninput=e=>{const k=e.target.dataset.k,li=e.target.closest('li');if(!k||!li)return;rec(+li.dataset.n)[k]=e.target.value;save()};
 $('#ls').onchange=e=>{if(e.target.dataset.k==='d')draw()};
@@ -244,7 +244,7 @@ async function load(file){
  for(const s of b.sh)if(s.p!==main.p&&s.n!=='특이사항'&&s.n!=='Data'&&!s.hid&&!/^세부 정보/.test(s.n))SH.push(await model(z,b,xf,s));
  try{Object.keys(localStorage).filter(k=>k.startsWith('sbr-d:')).forEach(k=>localStorage.removeItem(k))}catch(e){}
 try{syncG()}catch(e){}
- units=uniq(2);f.u=f.s=f.t=f.q='';$('#q').value='';
+ units=uniq(2);f.u=f.s=f.q='';f.t='n';RC.clear();$('#ft').value='n';$('#q').value='';
  $('#fs').innerHTML='<option value="">전체 단계</option>'+uniq(1).map(s=>`<option>${esc(s)}</option>`).join('');
  $('#i-u').innerHTML=units.map(u=>`<option>${esc(u)}</option>`).join('');
  $('#sh-s').innerHTML=SH.map((m,i)=>`<option value="${i}">${esc(m.n)}</option>`).join('');$('#sh-a').checked=AM=false;secOpts();
